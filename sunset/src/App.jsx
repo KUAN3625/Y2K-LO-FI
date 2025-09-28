@@ -1,15 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import Routes from './Home/Routes'
+import AppRoutes from './Home/Routes'
 
 function App() {
 
 
   return (
     <>
-    <Routes/>
- 
-
+    <AppRoutes/>
     </>
   )
 }

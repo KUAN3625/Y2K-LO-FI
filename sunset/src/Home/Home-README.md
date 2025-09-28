@@ -4,6 +4,13 @@
 按照順序排列開發順序
 
 Routes 路由器，管理並集成所有頁面
+<Routes>
+
+<Route path="/" element={ } />
+
+<Routes/>
+
+
 
 Home 包含所有程式頁面
 

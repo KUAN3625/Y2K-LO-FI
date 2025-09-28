@@ -1,4 +1,4 @@
-export default function NotFound(){
+const NotFound =()=> {
 
     return(
         <div>
@@ -9,3 +9,5 @@ export default function NotFound(){
     )
 
 }
+
+export default NotFound
