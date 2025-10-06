@@ -1,9 +1,12 @@
-const LoginBtn = () => {
+const Loginbtn = (props) => {
   return (
-    <div className="p-4 rounded-full border-2 border-black w-16 h-16 grid place-items-center">
-      Login
+    <div className="px-8 h-10 border-2 border-black rounded-full w-64 grid place-items-center mx-auto
+     hover:shadow-2xl hover:bg-black hover:text-white
+    ">
+      {props.nametext}
+
+
     </div>
   );
 };
-
-export default LoginBtn;
+export default Loginbtn;
