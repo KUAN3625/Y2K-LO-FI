@@ -10,7 +10,7 @@ const Login = () => {
                
                 <Loginbtn nametext="Google Login" />
                 <Loginbtn nametext="Email Login"/>
-                <Loginbtn nametext="?"/>
+                <Loginbtn nametext="?" className=" bg-amber-300  "  />
                 <Loginbtn nametext="OK" />
             </div>
 
