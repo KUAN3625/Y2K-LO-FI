@@ -6,6 +6,9 @@ import { Route } from 'react-router-dom'
 import SlowThing from './components/three/Background3D'
 import { Canvas } from '@react-three/fiber'
 import { AsciiRenderer, Environment, Fisheye, GizmoHelper, Grid, OrbitControls } from '@react-three/drei'
+import { Model } from './components/three/002'
+import { DirectionalLight } from 'three'
+
 
 
 
@@ -26,17 +29,17 @@ function App() {
     className=' fixed inset-0  '>
   
         <Environment preset="warehouse" />
-
-
+        
+          <directionalLight /* 自然光 */
+    position={[5, 10, 5]}
+    intensity={1}
+    castShadow
+    shadow-bias={-0.0001}
+  />
              <SlowThing />
-
-
-   
+            <Model />
 
       <OrbitControls/>
-
-
-
       </Canvas>
 
 </div>
