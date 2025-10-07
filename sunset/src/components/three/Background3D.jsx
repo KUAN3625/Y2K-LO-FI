@@ -1,16 +1,17 @@
 import { Canvas } from '@react-three/fiber'
-import { useRef } from "react"
+import { OrbitControls, Environment } from '@react-three/drei'
 
 
 
 const SlowThing = () => {
 
-    return(
-
-<Canvas>
-
-
-</ Canvas>
+    return (
+        <>
+            <mesh>
+                <boxGeometry />
+                <meshStandardMaterial color="hotpink" />
+            </mesh>
+        </>
     )
 
 
