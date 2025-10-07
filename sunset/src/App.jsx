@@ -3,6 +3,7 @@ import './App.css'
 import AppRoutes from './Home/Routes'
 import Entry from './Home/Entry/Entry'
 import { Route } from 'react-router-dom'
+import SlowThing from './components/three/Background3D'
 
 function App() {
 
@@ -10,6 +11,8 @@ function App() {
   return (
     <>
     <AppRoutes/>
+    
+    <SlowThing/>
     </>
   )
 }
