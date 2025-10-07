@@ -5,9 +5,11 @@ import Entry from './Home/Entry/Entry'
 import { Route } from 'react-router-dom'
 import SlowThing from './components/three/Background3D'
 import { Canvas } from '@react-three/fiber'
-import { AsciiRenderer, Environment, Fisheye, GizmoHelper, Grid, OrbitControls } from '@react-three/drei'
-import { Model } from './components/three/002'
+import { AsciiRenderer, Billboard, Bounds, Environment, Fisheye, GizmoHelper, Grid, OrbitControls, PointerLockControls, ScreenSpace } from '@react-three/drei'
+
 import { DirectionalLight } from 'three'
+import DLight from './components/three/light'
+import { Model } from './components/three/Home'
 
 
 
@@ -25,19 +27,18 @@ function App() {
 
 <div className=' flex  w-screen h-screen'
 >
-    <Canvas camera={{ position: [0, 3, 5] }}
-    className=' fixed inset-0  '>
-  
+    <Canvas false camera={{ fov: 30, near: 0.1, far: 1000, position: [5, 0, 5] }}
+     frameloop="demand"
+    
+    className=' fixed inset-0'>
         <Environment preset="warehouse" />
         
-          <directionalLight /* 自然光 */
-    position={[5, 10, 5]}
-    intensity={1}
-    castShadow
-    shadow-bias={-0.0001}
-  />
-             <SlowThing />
-            <Model />
+            <DLight />
+         
+ <Model/>
+
+
+    <SlowThing />
 
       <OrbitControls/>
       </Canvas>
