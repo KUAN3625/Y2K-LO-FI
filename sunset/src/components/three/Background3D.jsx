@@ -9,7 +9,7 @@ const SlowThing = () => {
         <>
             <mesh>
                 <boxGeometry />
-                <meshStandardMaterial color="hotpink" />
+                <meshStandardMaterial color="#ffff" />
             </mesh>
         </>
     )
