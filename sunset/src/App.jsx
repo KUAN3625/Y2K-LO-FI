@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import './App.css'
 import AppRoutes from './Home/Routes'
 import Entry from './Home/Entry/Entry'
@@ -24,10 +24,14 @@ function App() {
 >
     <Canvas camera={{ position: [0, 3, 5] }}
     className=' fixed inset-0  '>
+  
         <Environment preset="warehouse" />
 
 
-        <SlowThing />
+             <SlowThing />
+
+
+   
 
       <OrbitControls/>
 
