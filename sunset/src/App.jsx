@@ -5,26 +5,36 @@ import Entry from './Home/Entry/Entry'
 import { Route } from 'react-router-dom'
 import SlowThing from './components/three/Background3D'
 import { Canvas } from '@react-three/fiber'
-import { Environment, OrbitControls } from '@react-three/drei'
+import { AsciiRenderer, Environment, Fisheye, GizmoHelper, Grid, OrbitControls } from '@react-three/drei'
+
+
 
 function App() {
 
 
   return (
     <>
-    <div className=' fixed  z-10 w-screen h-screen '>
-      <AppRoutes/>
-      
+    <div className=' fixed  z-10 w-screen h-screen pointer-events-none '>
+      <AppRoutes/> 
     </div>
+
+
 
 <div className=' flex  w-screen h-screen'
 >
-    <Canvas className=' fixed inset-0  bg-green-400'>
+    <Canvas camera={{ position: [0, 3, 5] }}
+    className=' fixed inset-0  '>
+        <Environment preset="warehouse" />
+
 
         <SlowThing />
-        <Environment preset="warehouse" />
+
       <OrbitControls/>
+
+
+
       </Canvas>
+
 </div>
     
     </>

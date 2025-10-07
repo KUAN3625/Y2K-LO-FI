@@ -5,7 +5,7 @@ const Entry = () => {
 
     return (
 
-        <header className=" pb-2 min-h-screen w-full  flex flex-col items-center justify-between bg-black">
+        <header className="pointer-events-auto pb-2 min-h-screen w-full  flex flex-col items-center justify-between bg-black">
             {/* LOGO 區塊 */}
             <LogoSmall />
 
