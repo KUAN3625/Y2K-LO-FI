@@ -10,6 +10,7 @@ import { AsciiRenderer, Billboard, Bounds, Environment, Fisheye, GizmoHelper, Gr
 import { DirectionalLight } from 'three'
 import DLight from './components/three/light'
 import { Model } from './components/three/Home'
+import { CameraProvider } from './components/three/Camer/CamerController'
 
 
 
@@ -26,11 +27,13 @@ function App() {
 
 
 <div className=' flex  w-screen h-screen'
->
-    <Canvas false camera={{ fov: 30, near: 0.1, far: 1000, position: [5, 0, 5] }}
+>      
+
+    <Canvas false camera={{ fov: 30, near: 0.1, far: 1000, position: [5, 0, 3] }}
      frameloop="demand"
     
     className=' fixed inset-0'>
+
         <Environment preset="warehouse" />
         
             <DLight />
@@ -41,6 +44,7 @@ function App() {
     <SlowThing />
 
       <OrbitControls/>
+
       </Canvas>
 
 </div>

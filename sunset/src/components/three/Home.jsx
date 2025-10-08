@@ -4,10 +4,18 @@ Command: npx gltfjsx@6.5.3 public/Home.glb -o src/components/three/Home.jsx -T
 Files: public/Home.glb [1.6MB] > C:\Y2K-LO-FI\sunset\src\components\three\Home-transformed.glb [119.66KB] (93%)
 */
 
-import React from 'react'
+import React, { useRef } from 'react'
 import { useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
+import { useCamera } from './Camer/CamerController'
 
 export function Model(props) {
+
+  const camRef = useRef()
+  const { registerCamera } = useCamera
+
+  
+
+
   const group = React.useRef()
   const { nodes, materials, animations } = useGLTF('/Home-transformed.glb')
   const { actions } = useAnimations(animations, group)
@@ -110,10 +118,10 @@ export function Model(props) {
             </group>
           </group>
         </group>
-        <PerspectiveCamera name="Camera_LOGIN" makeDefault={false} far={1013} near={0.1} fov={14.426} position={[13.663, -0.027, -2.681]} rotation={[0.169, 1.197, -0.153]} />
+        <PerspectiveCamera name="Camera_LOGIN" makeDefault={true} far={1013} near={0.1} fov={14.426} position={[13.663, -0.027, -2.681]} rotation={[0.169, 1.197, -0.153]} />
         <PerspectiveCamera name="Camera_MENU" makeDefault={false} far={1013} near={0.1} fov={14.426} position={[48.263, 2.511, 7.119]} rotation={[-3.02, 0.798, 3.059]} />
-        <PerspectiveCamera name="Camera_B" makeDefault={false} far={1013} near={0.1} fov={14.426} position={[77.575, 21.433, 62.256]} rotation={[-0.003, 1.041, 0.007]} scale={2.034} />
-        <PerspectiveCamera name="Camera_A" makeDefault={true} far={1013} near={0.1} fov={15} position={[91.551, -0.325, 28.667]} rotation={[0.207, 1.159, -0.185]} scale={2.034} />
+        <PerspectiveCamera name="Camera_B" makeDefault={false} far={1013} near={0.1} fov={14.426} position={[100, 30, 55]} rotation={[-0.003, 1, 0.007]} scale={2.034} />
+        <PerspectiveCamera name="Camera_A" makeDefault={false} far={1013} near={0.1} fov={15} position={[91.551, -0.325, 28.667]} rotation={[0.207, 1.159, -0.185]} scale={2.034} />
         <mesh name="Circle008" geometry={nodes.Circle008.geometry} material={nodes.Circle008.material} position={[-516.312, -15.475, -217.289]} rotation={[Math.PI / 2, 0, -1.283]} scale={65.701} />
         <mesh name="Plane" geometry={nodes.Plane.geometry} material={materials.PaletteMaterial001} position={[25.134, -1.413, 20.699]} scale={92.63} />
         <mesh name="Cube" geometry={nodes.Cube.geometry} material={materials.PaletteMaterial002} position={[77.882, -1.564, -5.141]} rotation={[-Math.PI, 0, -Math.PI]} scale={2.034} />
