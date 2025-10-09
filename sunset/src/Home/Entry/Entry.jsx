@@ -10,7 +10,7 @@ const Entry = () => {
             <LogoSmall />
 
 
-           < Titlevideo to="/login" />
+           < Titlevideo to="/OK" />
 
 
             <div className=" flex  mb-8">

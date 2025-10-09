@@ -2,8 +2,8 @@ const Core =() =>{
 
     return(
         <div>
-        <h1>核心渲染</h1>
-        <p>A</p>
+        <h1>核心</h1>
+
         </div>
 
     )

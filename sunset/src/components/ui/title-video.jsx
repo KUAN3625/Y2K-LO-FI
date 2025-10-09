@@ -10,7 +10,7 @@ const navigate = useNavigate();
 
     <div 
     onClick={()=> navigate(props.to)}
-    className="w-full max-w-2xl border-1  px-4">
+    className="w-full max-w-2xl   px-4">
       {/* 固定高度的內容區 */}
       <div className="h-48 sm:h-56 md:h-64 flex items-center justify-center">
         <video

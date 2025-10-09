@@ -7,6 +7,7 @@ import About from "./About/About";
 import Login from "./Login/Login";
 import NotFound from "./NotFound";
 import SlowThing from "../components/three/Background3D";
+import Entry2 from "./Entry/Entry_2";
 
 
 const AppRoutes = () => {
@@ -14,6 +15,7 @@ const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<Entry/>} />
+            <Route path="/OK" element={<Entry2/>} />
             <Route path="/core" element={<Core/>} />
             <Route path="/todo" element={<Todolist/>} />
             <Route path="/setting" element={<Setting/>}/>
