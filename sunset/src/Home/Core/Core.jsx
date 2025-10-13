@@ -1,10 +1,15 @@
+import Musicbox from "../../components/tool-page/music/Musicplay"
+import TimerPanel from "../../components/tool-page/Pomodoro/TimePanel"
+
 const Core =() =>{
 
     return(
-        <div>
-        <h1>核心</h1>
+        <main className=" relative  w-screen min-h-screen text-gray-800 overflow-hidden">
+        
+        <TimerPanel />
 
-        </div>
+        <Musicbox />
+        </main>
 
     )
 

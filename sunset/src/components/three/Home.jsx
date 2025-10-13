@@ -118,7 +118,7 @@ export function Model(props) {
             </group>
           </group>
         </group>
-        <PerspectiveCamera name="Camera_LOGIN" makeDefault={true} far={1013} near={0.1} fov={14.426} position={[13.663, -0.027, -2.681]} rotation={[0.169, 1.197, -0.153]} />
+        <PerspectiveCamera name="Camera_LOGIN" makeDefault={true} far={1013} near={0.1} fov={25} position={[13.663, -0.027, -2.681]} rotation={[0.169, 2, 2.7]} />
         <PerspectiveCamera name="Camera_MENU" makeDefault={false} far={1013} near={0.1} fov={14.426} position={[48.263, 2.511, 7.119]} rotation={[-3.02, 0.798, 3.059]} />
         <PerspectiveCamera name="Camera_B" makeDefault={false} far={1013} near={0.1} fov={14.426} position={[100, 30, 55]} rotation={[-0.003, 1, 0.007]} scale={2.034} />
         <PerspectiveCamera name="Camera_A" makeDefault={false} far={1013} near={0.1} fov={15} position={[91.551, -0.325, 28.667]} rotation={[0.207, 1.159, -0.185]} scale={2.034} />
