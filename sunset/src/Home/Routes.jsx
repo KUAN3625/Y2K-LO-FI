@@ -6,7 +6,7 @@ import Setting from "./Settings/Setting";
 import About from "./About/About";
 import Login from "./Login/Login";
 import NotFound from "./NotFound";
-import SlowThing from "../components/three/Background3D";
+import SlowThing from "../components/three/CanvasHome";
 import Entry2 from "./Entry/Entry_2";
 
 

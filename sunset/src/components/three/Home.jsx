@@ -6,14 +6,12 @@ Files: public/Home.glb [1.6MB] > C:\Y2K-LO-FI\sunset\src\components\three\Home-t
 
 import React, { useRef } from 'react'
 import { useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
-import { useCamera } from './Camer/CamerController'
+
 
 export function Model(props) {
 
   const camRef = useRef()
-  const { registerCamera } = useCamera
 
-  
 
 
   const group = React.useRef()
