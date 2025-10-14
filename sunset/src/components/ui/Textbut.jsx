@@ -9,14 +9,14 @@ return(
       style={{ pointerEvents: "auto" }} // ⬅️ 確保按鈕可以被點
     >
         <button 
-        onClick={() => switchTo("menu")}>
+        onClick={() => switchTo("core")}>
                     M
                 </button >
 
       <button
         onClick={() => {
           // 切回 login
-          switchTo("login")
+          switchTo("mainScene")
         }}
       >
         Login

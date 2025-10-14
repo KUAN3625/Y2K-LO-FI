@@ -12,15 +12,17 @@ const DebugState = () => {
 
   useEffect(() => {
     console.log('R3F State:', state)
-  }, [])
-  return null
+  }, )
+  return
 }
+
 
 const BgCanvas = () => {
 
       return (
           <>
-        <Canvas camera={{ fov: 30, near: 0.1, far: 1000, position: [10, 1, -20] }}
+          
+        <Canvas camera={{ fov: 30, near: 0.1, far: 1000, position: [69.68917, 1.92035, 20.79524] }}
           frameloop="demand"
           className=' fixed inset-0'>    
           <CameraController />
@@ -28,6 +30,7 @@ const BgCanvas = () => {
           <Model />
         <DebugState />
         {/*<OrbitControls/>*/}
+        <OrbitControls makeDefault enableDamping/>
         </Canvas>
 
         </>

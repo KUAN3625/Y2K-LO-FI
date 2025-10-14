@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 
+{/*core = 核心頁面 */}
 
 const cameraPresets = {
   login:{
@@ -14,11 +15,12 @@ fov: 30,  near: 0.1, far: 1000,
 fov: 30,  near: 0.1, far: 1000,    
   },
 
-  detail:{
-  cameraPosition: [45.30, 2.544, -30.8],
-  cameraRotation: [0.0082, 1.1824, -0.0076],
+  core:{
+  cameraPosition: [72.41439, 1.94809, 21.28092],
+  cameraRotation: [-0.08799, 1.10061, 0.07848],
 fov: 30,  near: 0.1, far: 1000,    
   },
+
 
   mainScene: {
   cameraPosition: [69.68917, 1.92035, 20.79524],
@@ -54,7 +56,7 @@ console.warn(`Camera preset"${name}" not found.`)
 return
 }
 
-set({...preset, activeCamera:name })
+set({...preset, activeCamera:name, _updatedAt: Date.now(), })
   },
 }))
 
