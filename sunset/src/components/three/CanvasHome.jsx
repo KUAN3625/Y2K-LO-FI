@@ -24,11 +24,12 @@ const BgCanvas = () => {
           frameloop="demand"
           className=' fixed inset-0'>    
           <CameraController />
-          <Environment preset="warehouse" />
           <DLight />
           <Model />
         <DebugState />
+        {/*<OrbitControls/>*/}
         </Canvas>
+
         </>
     )
 
