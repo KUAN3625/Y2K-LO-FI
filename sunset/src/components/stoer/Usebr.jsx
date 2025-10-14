@@ -16,8 +16,8 @@ fov: 30,  near: 0.1, far: 1000,
   },
 
   core:{
-  cameraPosition: [72.41439, 1.94809, 21.28092],
-  cameraRotation: [-0.08799, 1.10061, 0.07848],
+  cameraPosition: [73.29839, 2.49563, 18.03052],
+  cameraRotation: [-0.13754, 1.32739, 0.13353], 
 fov: 30,  near: 0.1, far: 1000,    
   },
 
