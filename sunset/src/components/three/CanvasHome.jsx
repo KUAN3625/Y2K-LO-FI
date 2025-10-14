@@ -10,11 +10,9 @@ import { useEffect } from 'react'
 const DebugState = () => {
   const state = useThree()
 
-
   useEffect(() => {
     console.log('R3F State:', state)
   }, [])
-
   return null
 }
 
@@ -22,18 +20,13 @@ const BgCanvas = () => {
 
       return (
           <>
-        <Canvas camera={{ fov: 30, near: 0.1, far: 1000, position: [9.3, 0.13, -18.8] }}
+        <Canvas camera={{ fov: 30, near: 0.1, far: 1000, position: [10, 1, -20] }}
           frameloop="demand"
-          className=' fixed inset-0'>
-
-            
+          className=' fixed inset-0'>    
           <CameraController />
           <Environment preset="warehouse" />
           <DLight />
-
           <Model />
-
-          <OrbitControls/>
         <DebugState />
         </Canvas>
         </>

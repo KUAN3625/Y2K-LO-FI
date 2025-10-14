@@ -2,6 +2,7 @@ import { useThree } from "@react-three/fiber"
 import { useEffect } from "react"
 import useCameraStore from "../../stoer/usebr"
 
+
 const CameraController = () => {
   const { camera } = useThree()
   const { 
