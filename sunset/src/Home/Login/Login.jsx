@@ -1,7 +1,8 @@
 import Loginbtn from "../../components/ui/LoginBtn"
-
+import useCameraStore from "../../components/stoer/usebr"
 
 const Login = () => {
+    const switchTo = useCameraStore(s =>s.switchTo)
 
     return (
         <div className=" min-h-screen w-full flex items-center justify-center ">
@@ -13,7 +14,10 @@ const Login = () => {
                 to="/*" />
                 <Loginbtn nametext="Email Login" to="/" />
                 <Loginbtn nametext="Visitior" className="border-none text-gray-400 underline hover:text-gray-600 hover:bg-transparent" />
-                <Loginbtn nametext="OK" to="/core" />
+                <Loginbtn nametext="OK" to="/core" 
+                onBeforeNavigate = {()=>{
+                    switchTo("core")
+                }} />
             </div>
 
 
