@@ -16,7 +16,6 @@ function App() {
 
 
       <div className=' flex  w-screen h-screen'>  
-        <Testbut />
       <BgCanvas />
       </div>
 

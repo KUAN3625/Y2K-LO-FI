@@ -5,6 +5,7 @@ import { Model } from './Home'
 import DLight from './light'
 import CameraController from './Camer/camerController'
 import { useEffect } from 'react'
+import Role from './2D/Role/Role'
 
 
 const DebugState = () => {
@@ -22,15 +23,18 @@ const BgCanvas = () => {
       return (
           <>
           
-        <Canvas camera={{ fov: 30, near: 0.1, far: 1000, position: [69.68917, 1.92035, 20.79524] }}
+        <Canvas camera={{ fov: 30, near: 0.1, far: 1000, position: [80, 0.3073650447758762, -6.772709083563987] }}
           frameloop="demand"
           className=' fixed inset-0'>    
+
           <CameraController />
+          <Role />
           <DLight />
           <Model />
         <DebugState />
         {/*<OrbitControls/>*/}
-        <OrbitControls makeDefault enableDamping/>
+     
+
         </Canvas>
 
         </>
