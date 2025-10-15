@@ -24,15 +24,16 @@ const BgCanvas = () => {
           <>
           
         <Canvas camera={{ fov: 30, near: 0.1, far: 1000, position: [80, 0.3073650447758762, -6.772709083563987] }}
-          frameloop="demand"
+          frameloop="always"
           className=' fixed inset-0'>    
 
           <CameraController />
-          <Role />
+          <Role position={[0, 0, 1]} />
           <DLight />
           <Model />
         <DebugState />
         {/*<OrbitControls/>*/}
+     <OrbitControls/>
      
 
         </Canvas>
