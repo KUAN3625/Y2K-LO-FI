@@ -34,6 +34,7 @@ const BgCanvas = () => {
           <DLight />
           <Model />
         <DebugState />
+        
         {/*<OrbitControls/>*/}
    
         </Canvas>
