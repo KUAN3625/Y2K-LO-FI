@@ -13,7 +13,7 @@ const Login = () => {
                 <Loginbtn nametext="Google Login"
                     to="/*"
                     onBeforeNavigate={() => {
-                        switchTo("login")
+                        switchTo("menu")
                     }} />
                 <Loginbtn nametext="Email Login"
                     to="/*"

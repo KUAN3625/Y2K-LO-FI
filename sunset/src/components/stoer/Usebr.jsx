@@ -9,19 +9,19 @@ const cameraPresets = {
 fov: 30,  near: 0.1, far: 1000,    
   },
 
+  //漢堡
   menu:{
-  cameraPosition: [45.30, 2.544, -18.8],
-  cameraRotation: [0.0082, 1.1824, -0.0076],
+ cameraPosition: [41.92, 1.31, 13],
+  cameraRotation: [3.10, 0.75, -3.11],
 fov: 30,  near: 0.1, far: 1000,    
   },
 
+  //主場景
   core:{
   cameraPosition: [73.29839, 2.49563, 18.03052],
   cameraRotation: [-0.13754, 1.32739, 0.13353], 
 fov: 30,  near: 0.1, far: 1000,    
   },
-
-
   mainScene: {
   cameraPosition: [69.68917, 1.92035, 20.79524],
   cameraRotation: [-0.01318, 1.10262, 0.01176],

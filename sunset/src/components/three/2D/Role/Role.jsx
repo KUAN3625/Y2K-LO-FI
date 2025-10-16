@@ -1,22 +1,34 @@
 import { SpriteAnimator } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
+import { useRef } from "react";
+import * as THREE from "three";
 
 const Role = () => {
-  return (
-    <SpriteAnimator
-      // 換成你的 JSON 與圖檔
-      textureImageURL="/HELP.jpg"
-      textureDataURL="/HELP.json"
 
-      // 可調整的參數
-      fps={12}               // 每秒幀數
-      loop                   // 循環播放
-      autoPlay               // 自動播放
-      scale={[1, 1, 1]}      // 放大一點方便看
-      position={[0, 0, 0]}   // 放在畫面中央
-      alphaTest={0.01}       // 防止透明邊緣發光
-    />
+
+  return (
+
+
+   <>
+      <SpriteAnimator
+        textureImageURL="/sprite/HS.png"
+        textureDataURL="/sprite/HS.json"
+        fps={5}
+        loop
+        autoPlay
+        scale={[2, 1.5, 1.5]}
+        position={[60, 0.1, 9]}
+        alphaTest={0.01}
+        asSprite={true}//看板技術，首選方案
+        rotation={[0, Math.PI / 3, 0]}//備選方案，手動調節
+        roundFramePosition={true}   // 修正「邊界漏光」
+        canvasRenderingContext2DSettings={{ willReadFrequently: true }}
+     
+      />
+
+      
+    </>
   );
 };
 
 export default Role;
-

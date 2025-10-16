@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import Role from './2D/Role/Role'
 
 
+
 const DebugState = () => {
   const state = useThree()
 
@@ -25,6 +26,7 @@ const BgCanvas = () => {
           
         <Canvas camera={{ fov: 30, near: 0.1, far: 1000, position: [80, 0.3073650447758762, -6.772709083563987] }}
           frameloop="always"
+          dpr={[1, 2]} style={{ imageRendering: "pixelated" }}
           className=' fixed inset-0'>    
 
           <CameraController />
@@ -33,9 +35,7 @@ const BgCanvas = () => {
           <Model />
         <DebugState />
         {/*<OrbitControls/>*/}
-        
-     
-
+   
         </Canvas>
 
         </>
