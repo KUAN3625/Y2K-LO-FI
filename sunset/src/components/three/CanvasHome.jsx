@@ -33,7 +33,7 @@ const BgCanvas = () => {
           <Model />
         <DebugState />
         {/*<OrbitControls/>*/}
-     <OrbitControls/>
+        
      
 
         </Canvas>

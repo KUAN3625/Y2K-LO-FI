@@ -1,32 +1,22 @@
-import { SpriteAnimator, useSpriteLoader } from "@react-three/drei";
-import * as THREE from "three";
+import { SpriteAnimator } from "@react-three/drei";
 
 const Role = () => {
-  // 1️⃣ 用 useSpriteLoader 載入你的 spritesheet
-  const texture = useSpriteLoader("/sprite/Sprite-0003.png");
-
-  // 2️⃣ 設定像素風濾鏡（確保清晰）
-  texture.magFilter = THREE.NearestFilter;
-  texture.minFilter = THREE.NearestFilter;
-  texture.generateMipmaps = false;
-
-  // 3️⃣ 回傳 SpriteAnimator（只有一層 return）
   return (
-    <group rotation={[0, Math.PI, 0]}>
-      <SpriteAnimator
-        texture={texture}
-        frameCount={13}
-        columns={13}
-        rows={1}
-        frameSize={[32, 32]}
-        fps={10}
-        loop
-        autoPlay
-        scale={[5, 5, 5]}
-        material={{ transparent: true, toneMapped: false }}
-      />
-    </group>
+    <SpriteAnimator
+      // 換成你的 JSON 與圖檔
+      textureImageURL="/HELP.jpg"
+      textureDataURL="/HELP.json"
+
+      // 可調整的參數
+      fps={12}               // 每秒幀數
+      loop                   // 循環播放
+      autoPlay               // 自動播放
+      scale={[1, 1, 1]}      // 放大一點方便看
+      position={[0, 0, 0]}   // 放在畫面中央
+      alphaTest={0.01}       // 防止透明邊緣發光
+    />
   );
 };
 
 export default Role;
+
