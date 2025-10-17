@@ -11,7 +11,7 @@ const Role = () => {
 
    <>
       <SpriteAnimator
-        textureImageURL="/sprite/HS.png"
+        textureImageURL="/sprite/HD.png"
         textureDataURL="/sprite/HS.json"
         fps={5}
         loop
