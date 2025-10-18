@@ -18,8 +18,8 @@ fov: 30,  near: 0.1, far: 1000,
 
   //主場景
   core:{
-  cameraPosition: [73.29839, 2.49563, 18.03052],
-  cameraRotation: [-0.13754, 1.32739, 0.13353], 
+cameraPosition: [76.03791, 4.57941, 21.38244],
+  cameraRotation: [-0.19300, 1.20846, 0.18075], 
 fov: 30,  near: 0.1, far: 1000,    
   },
   mainScene: {
@@ -29,17 +29,10 @@ fov: 30,  near: 0.1, far: 1000,
   near: 0.1,
   far: 1000,
 },
-  mainScene: {
-  cameraPosition: [69.68917, 1.92035, 20.79524],
-  cameraRotation: [-0.01318, 1.10262, 0.01176],
-  fov: 30,
-  near: 0.1,
-  far: 1000,
-},
   twoScene: {
-  cameraPosition: [57.9, 17.19, 60],
-  cameraRotation: [-0.019, 0.85, 0],
-  fov: 30,
+  cameraPosition: [43.93124, 18.95469, 46.26991],
+  cameraRotation: [-0.04962, 0.90411, 0.03900],
+  fov: 40,
   near: 0.1,
   far: 1000,
 },

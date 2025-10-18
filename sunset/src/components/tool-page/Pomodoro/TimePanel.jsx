@@ -1,3 +1,5 @@
+import ClockMode from "../../hooks/colock/Colock"
+import ControlPanel from "../ConterolPanel"
 import Number from "./Number/auto Number"
 
 const TimerPanel = () => {
@@ -5,13 +7,12 @@ const TimerPanel = () => {
     return (
 
         <>
-            <section className=" absolute top-8 right-10 w-70 min-h-20 rounded-2xl p-5 border-2">
-               <Number />
-
-                <div className=" mt-4 flex justify-center">
-<button className=" h-8 w-8 rounded-full " >⚪</button>{/*佔位 */}
+            <section className="pointer-events-auto absolute top-4 right-10 w-65 min-h-20 rounded-2xl">
+                {/* 外層不再有邊框與 padding */}
+                <div className="relative border-2 rounded-2xl p-5 bg-white/30 backdrop-blur-md">
+                    <ClockMode />
+                    <ControlPanel />
                 </div>
-
             </section>
         </>
 

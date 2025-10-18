@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
 @import "tailwindcss";
 @layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
@@ -25,4 +26,6 @@ h6 {
   font-weight: inherit;
 }
 
-
+@theme {
+  --font-pixel: "Micro 5", sans-serif;
+}
