@@ -4,7 +4,7 @@ import TimerPanel from "../../components/tool-page/Pomodoro/TimePanel"
 const Core =() =>{
 
     return(
-        <main className=" relative  w-screen min-h-screen text-gray-800 overflow-hidden">
+        <main className=" relative  w-full min-h-screen text-gray-800 overflow-hidden">
         
         <TimerPanel />
 
