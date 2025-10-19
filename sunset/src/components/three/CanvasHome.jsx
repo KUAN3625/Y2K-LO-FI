@@ -39,7 +39,7 @@ const BgCanvas = () => {
         <Model />
         <DebugState />
         {/*<OrbitControls/>*/}
-
+<OrbitControls/>
 
         <Grid
           cellSize={1}
@@ -50,6 +50,7 @@ const BgCanvas = () => {
           fadeStrength={1}
           position={[0, -1.5, 0]}
         />
+        
       </Canvas>
 
     </>

@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 
-{/*core = 核心頁面 */}
+{/*core = 核心頁面
+  存放所有攝影機位置 */}
 
 const cameraPresets = {
   login:{
