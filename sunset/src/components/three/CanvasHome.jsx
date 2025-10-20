@@ -39,8 +39,6 @@ const BgCanvas = () => {
         <Model />
         <DebugState />
         {/*<OrbitControls/>*/}
-<OrbitControls/>
-
         <Grid
           cellSize={1}
           cellColor="#ffaa88"
