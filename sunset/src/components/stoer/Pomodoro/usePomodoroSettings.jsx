@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { create } from "zustand"
 
-{/*番茄鐘狀態控制層*/}
+{/*番茄鐘滑稈控制層*/}
 
 
 export const usePomodoroSettings = create((set) => ({

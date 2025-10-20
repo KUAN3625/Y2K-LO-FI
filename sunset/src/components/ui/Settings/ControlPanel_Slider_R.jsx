@@ -1,5 +1,5 @@
 
-import { usePomodoroSettings } from "../../stoer/usePomodoroSettings"
+import { usePomodoroSettings } from "../../stoer/Pomodoro/usePomodoroSettings"
 import Slider from "./Slider"
 
 {/* 滑桿元件_番茄_Rest*/}
@@ -22,9 +22,9 @@ const endDrag = () => setRestDragging(false)
       <label className="flex flex-col gap-2">
 
         <Slider
-          min={5}
+          min={1}
           max={15}
-          step={5}
+          step={1}
           value={rest.time}
           onChange={(e) => setRestTime(Number(e.target.value))}
           onStart={startDrag}

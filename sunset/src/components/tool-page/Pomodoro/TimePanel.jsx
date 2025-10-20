@@ -1,15 +1,16 @@
 import { useState } from "react"
 import ClockMode from "../../hooks/colock/Colock"
 import ControlPanel from "../ConterolPanel"
-import Number from "./Number/auto Number"
+import { usePomodoroRuntime } from "../../stoer/Pomodoro/usePomodoroRuntime"
 
 const TimerPanel = () => {
     const[showPanel, setShowPanel] = useState(false)
-
     const handlEnter = () => setShowPanel(true)
     const handleLeave = () => setShowPanel(false)
-    {/* 面板開關 */}
+    {/* 滑稈面板開關 */}
 
+    const { mode } = usePomodoroRuntime()
+    const shouldShow = showPanel || mode !== "idle"
     
     return (
 

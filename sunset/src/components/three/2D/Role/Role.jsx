@@ -17,7 +17,7 @@ const Role = () => {
         loop
         autoPlay
         scale={[2, 1.5, 1.5]}
-        position={[60, 0.1, 9]}
+        position={[54, 0.1, 8]}
         alphaTest={0.01}
         asSprite={true}//看板技術，首選方案
         rotation={[0, Math.PI / 3, 0]}//備選方案，手動調節

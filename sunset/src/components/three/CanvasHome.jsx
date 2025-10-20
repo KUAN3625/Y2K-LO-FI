@@ -39,7 +39,6 @@ const BgCanvas = () => {
         <Model />
         <DebugState />
         {/*<OrbitControls/>*/}
-<OrbitControls/>
 
         <Grid
           cellSize={1}

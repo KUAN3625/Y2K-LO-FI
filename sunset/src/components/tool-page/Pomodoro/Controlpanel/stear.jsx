@@ -1,10 +1,13 @@
+import { usePomodoroRuntime } from "../../../stoer/Pomodoro/usePomodoroRuntime"
 
 export const TimeStear = () => {
+    const { start } = usePomodoroRuntime()
 
     return (
         <>              
-        <button className="py-3 w-15 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition">
-            開始
+        <button className="py-4 w-15 text-2xl bg-gray-900 font-pixel text-white rounded-lg hover:bg-gray-700 transition"
+        onClick={start} >
+            OK
         </button>
         
         </>
