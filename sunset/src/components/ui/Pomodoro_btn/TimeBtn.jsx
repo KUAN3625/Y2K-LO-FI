@@ -8,7 +8,7 @@ const TimeBtn = ({label, Component, componentProps = {} }) =>{
         <label className="flex gap-3 items-center text-sm font-bold">
       <span className="text-2xl">{label}</span>
       
-      <div className="border rounded-lg px-3 py-1">
+      <div className=" rounded-lg px-3 py-1">
       {Component ? <Component {...componentProps} /> : null }
       </div>
     </label>

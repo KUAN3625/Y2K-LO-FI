@@ -9,12 +9,12 @@ const ClockMode = () => {
     const{text} = useClock()
     const{ focus, rest } = usePomodoroSettings()
 
-    const displayText = 
-    focus.isDragging
 
-    ? `${focus.time}:00` 
-    : rest.isDragging
-    ?`${rest.time}:00`
+    const isAnyDragging = focus.isDragging || rest.isDragging
+
+
+    const displayText = isAnyDragging
+    ? `${focus.time}|${rest.time}`   
     : text
 
 

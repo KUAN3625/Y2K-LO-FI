@@ -10,7 +10,7 @@ const ControlPanel = () =>{
 return (
   <div className="absolute top-full mt-3 w-full rounded-xl border-2 bg-white/20 backdrop-blur-md shadow-lg">
 
-    <div className=" flex flex-col gap-4 p-5">
+    <div className=" flex flex-col   gap-4 p-5">
 
       <TimeBtn label="  Focus" Component={ControlPanelF} />
       <TimeBtn label="  Rest"  Component={ControlRestPanel} />     

@@ -22,9 +22,9 @@ const endDrag = () => setRestDragging(false)
       <label className="flex flex-col gap-2">
 
         <Slider
-          min={5}
+          min={1}
           max={15}
-          step={5}
+          step={1}
           value={rest.time}
           onChange={(e) => setRestTime(Number(e.target.value))}
           onStart={startDrag}
