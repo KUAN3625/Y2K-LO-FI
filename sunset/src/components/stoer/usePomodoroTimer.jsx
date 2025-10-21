@@ -1,87 +1,63 @@
 import { useState, useEffect } from "react"
 import { usePomodoroSettings } from "./usePomodoroSettings"
+import { create } from "zustand"
 
-    
-export const usePomodoroTimer = () => {
+    //番茄鐘運作核心
 
-    const { focus, rest } = usePomodoroSettings()
-    
-
-// ✅ 狀態管理
-  const [status, setStatus] = useState("idle") // idle, focus, rest, paused, done
-  const [remaining, setRemaining] = useState(0) // 秒數
-  const [intervalId, setIntervalId] = useState(null)
-
-  // ✅ 開始
-  const start = () => {
-
-    // 根據當前狀態決定起點
-    if (status === "idle" || status === "done") {
-      setRemaining(focus.time * 60) // 轉成秒
-      setStatus("focus")
-    } else if (status === "paused") {
-      setStatus("focus") // 繼續倒數
-    }
-  }
-
-  // ✅ 暫停
-  const pause = () => {
-    clearInterval(intervalId)
-    setIntervalId(null)
-    setStatus("paused")
-  }
-
-  // ✅ 重設
-  const reset = () => {
-    clearInterval(intervalId)
-    setIntervalId(null)
-    setStatus("idle")
-    setRemaining(0)
-  }
-
-  
-  // ✅ 倒數核心邏輯
-  useEffect(() => {
-    if (status !== "focus" && status !== "rest") return
-
-    const id = setInterval(() => {
-      setRemaining((prev) => {
-        if (prev <= 1) {
-          clearInterval(id)
-
-          // focus 結束 → 進入 rest
-          if (status === "focus") {
-            setStatus("rest")
-            return rest.time * 60
-          }
-
-          // rest 結束 → 完成
-          if (status === "rest") {
-            setStatus("done")
-            return 0
-          }
-        }
-
-        return prev - 1
-      })
-    }, 1000)
-
-    setIntervalId(id)
-
-    return () => clearInterval(id)
-  }, [status])
-
-  // ✅ 將秒轉成 mm:ss 顯示用
-  const minutes = String(Math.floor(remaining / 60)).padStart(2, "0")
-  const seconds = String(remaining % 60).padStart(2, "0")
+export const usePomodoroTimer = create((set, get) => {
+  const toSec = (m) => Math.max(1, Math.round(m * 60)); // 至少 1 秒，避免 0 → 00:00
 
   return {
-    status,          // 當前狀態
-    remaining,       // 剩餘秒數
-    timeText: `${minutes}:${seconds}`, // 格式化時間
-    start,
-    pause,
-    reset,
-  }
-  
-}
+    // 狀態
+    status: "idle",              // idle | focus | rest | paused | done
+    remainingSec: 0,
+    intervalId: null,
+
+    // 開始
+    start: () => {
+      // 先清掉舊 interval（避免重複）
+      const old = get().intervalId;
+      if (old) clearInterval(old);
+
+      const settings = usePomodoroSettings.getState();
+      const focusSec = toSec(settings.focus.time);
+
+      // 設定為 focus 並載入秒數
+      set({ status: "focus", remainingSec: focusSec });
+
+      const id = setInterval(() => {
+        const { remainingSec, status } = get();
+
+        if (remainingSec <= 1) {
+          // focus → rest；rest → done
+          if (status === "focus") {
+            const restSec = toSec(usePomodoroSettings.getState().rest.time);
+            set({ status: "rest", remainingSec: restSec });
+          } else if (status === "rest") {
+            clearInterval(get().intervalId);
+            set({ status: "done", remainingSec: 0, intervalId: null });
+            return;
+          }
+        } else {
+          set({ remainingSec: remainingSec - 1 });
+        }
+      }, 1000);
+
+      set({ intervalId: id });
+    },
+
+    // 暫停
+    pause: () => {
+      const id = get().intervalId;
+      if (id) clearInterval(id);
+      set({ intervalId: null, status: "paused" });
+    },
+
+    // 重設
+    reset: () => {
+      const id = get().intervalId;
+      if (id) clearInterval(id);
+      set({ intervalId: null, remainingSec: 0, status: "idle" });
+    },
+  };
+});
