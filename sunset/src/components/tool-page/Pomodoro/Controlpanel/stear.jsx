@@ -6,7 +6,7 @@ export const TimeStear = () => {
 
     const statusLabel = {
         focus: "專注中",
-        reset: "休息中",
+        rest: "休息中",
         paused: "暫停",
         done: "結束",
     }[status];
@@ -16,44 +16,36 @@ export const TimeStear = () => {
     return (
         <>
             <div className="flex flex-col items-center gap-3">
-                {/* 顯示狀態文字與時間 */}
-                <p className="text-lg font-bold">{statusLabel}</p>
+                {/* 顯示狀態文字與時間 */} {(status === "focus" || status === "rest" || status === "paused") && (
+
+
+                    <p className="text-lg font-bold">{statusLabel}</p>
+
+                )}
 
                 {/* 控制按鈕 */}
                 <div className="flex gap-3 mt-2">
                     {(status === "idle" || status === "done") && (
-                        <button
-                            onClick={start}
-                            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
-                        >
+                        <button onClick={start} className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
                             開始
                         </button>
                     )}
 
-                    {/* 正確的分流顯示 */}
-                    {(status === "focus" || status === "rest" || status === "paused") && (
+                    {status === "paused" && (
                         <>
-                            <button
-                                onClick={start}
-                                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
-                            >
-                                開始
+                            <button onClick={start} className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                                繼續
                             </button>
-
-                            <button
-                                onClick={pause}
-                                className="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition"
-                            >
-                                暫停
-                            </button>
-
-                            <button
-                                onClick={reset}
-                                className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
-                            >
+                            <button onClick={reset} className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
                                 重設
                             </button>
                         </>
+                    )}
+
+                    {(status === "focus" || status === "rest") && (
+                        <button onClick={pause} className="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">
+                            暫停
+                        </button>
                     )}
                 </div>
             </div>

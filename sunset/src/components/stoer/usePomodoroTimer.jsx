@@ -1,86 +1,117 @@
-import { useState, useEffect } from "react"
-import { usePomodoroSettings } from "./usePomodoroSettings"
-import { create } from "zustand"
+import { create } from "zustand";
+import { usePomodoroSettings } from "./usePomodoroSettings";
 
-    //番茄鐘運作核心
-
+// 番茄鐘運作核心
 export const usePomodoroTimer = create((set, get) => {
-  const toSec = (m) => Math.max(1, Math.round(m * 60)); // 至少 1 秒，避免 0 → 00:00
-
-
+  const toSec = (m) => Math.max(1, Math.round(m * 60)); // 避免 0 → 00:00
 
   return {
     // 狀態
     status: "idle",              // idle | focus | rest | paused | done
     remainingSec: 0,
     intervalId: null,
-    cycles: 0,
-    maxCycles: 4,
+    cyclesDone: 0,               // ✅ 已完成的循環數
+    maxCycles: 0,                // ✅ 設定要跑幾輪
+    previousStatus: null,        // ✅ 暫停恢復用
 
-
-    // 開始
+    // ▶️ 開始
     start: () => {
-      // 先清掉舊 interval（避免重複）
+      // 清除舊 interval
       const old = get().intervalId;
       if (old) clearInterval(old);
 
-const { status, remainingSec } = get();
-  const settings = usePomodoroSettings.getState();
+      const { status, remainingSec } = get();
+      const settings = usePomodoroSettings.getState();
 
-let initialSec = 0;
-  let initialStatus = status;
+      let initialSec = 0;
+      let initialStatus = status;
 
-  if (status === "paused" && remainingSec > 0) {
-    // → 從暫停恢復
-    initialSec = remainingSec;
-    // 恢復成暫停前的模式（focus/rest）
-    initialStatus = get().previousStatus || "focus";
-  } else {
-    // → 全新開始
-    initialStatus = "focus";
-    initialSec = toSec(settings.focus.time);
-  }
-
-  // 更新狀態
-  set({
-    status: initialStatus,
-    remainingSec: initialSec,
-    previousStatus: initialStatus, // ← 新增：記錄當前模式
-  });
-
-  const id = setInterval(() => {
-    const { remainingSec, status } = get();
-
-    if (remainingSec <= 1) {
-      // focus → rest；rest → done
-      if (status === "focus") {
-        const restSec = toSec(usePomodoroSettings.getState().rest.time);
-        set({ status: "rest", remainingSec: restSec, previousStatus: "rest" });
-      } else if (status === "rest") {
-        clearInterval(get().intervalId);
-        set({ status: "done", remainingSec: 0, intervalId: null });
-        return;
+      // 🧩 暫停後繼續
+      if (status === "paused" && remainingSec > 0) {
+        initialSec = remainingSec;
+        initialStatus = get().previousStatus || "focus";
+      } else {
+        // 🧩 全新開始
+        initialStatus = "focus";
+        initialSec = toSec(settings.focus.time);
       }
-    } else {
-      set({ remainingSec: remainingSec - 1 });
-    }
-  }, 1000);
 
-  set({ intervalId: id });
-},
+      // 初始化狀態
+      set({
+        status: initialStatus,
+        remainingSec: initialSec,
+        previousStatus: initialStatus,
+        cyclesDone: 0,
+        maxCycles: settings.cycles,
+      });
 
-    // 暫停
-    pause: () => {
-      const id = get().intervalId;
-      if (id) clearInterval(id);
-      set({ intervalId: null, status: "paused" });
+      // ✅ 啟動 interval
+      const id = setInterval(() => {
+        const { remainingSec, status, cyclesDone, maxCycles } = get();
+
+        // ---- 每秒更新 ----
+        if (remainingSec > 1) {
+          set({ remainingSec: remainingSec - 1 });
+          return;
+        }
+
+        // ---- 一輪結束 ----
+        if (status === "focus") {
+          const restSec = toSec(usePomodoroSettings.getState().rest.time);
+          set({
+            status: "rest",
+            remainingSec: restSec,
+            previousStatus: "rest",
+          });
+        } else if (status === "rest") {
+          const nextCycle = cyclesDone + 1;
+
+          if (nextCycle < maxCycles) {
+            const focusSec = toSec(usePomodoroSettings.getState().focus.time);
+            set({
+              status: "focus",
+              remainingSec: focusSec,
+              cyclesDone: nextCycle,
+              previousStatus: "focus",
+            });
+          } else {
+            clearInterval(get().intervalId);
+            set({
+              status: "done",
+              remainingSec: 0,
+              intervalId: null,
+              cyclesDone: nextCycle,
+            });
+            return;
+          }
+        }
+      }, 1000);
+
+      set({ intervalId: id });
     },
 
-    // 重設
+    // ⏸ 暫停
+    pause: () => {
+      const { intervalId, status } = get();
+      if (intervalId) clearInterval(intervalId);
+      set({
+        intervalId: null,
+        status: "paused",
+        previousStatus: status,
+      });
+    },
+
+    // 🔁 重設
     reset: () => {
       const id = get().intervalId;
       if (id) clearInterval(id);
-      set({ intervalId: null, remainingSec: 0, status: "idle" });
+      set({
+        intervalId: null,
+        remainingSec: 0,
+        status: "idle",
+        cyclesDone: 0,
+        maxCycles: 0,
+      });
     },
   };
 });
