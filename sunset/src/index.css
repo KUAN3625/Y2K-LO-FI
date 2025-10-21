@@ -29,3 +29,21 @@ h6 {
 @theme {
   --font-pixel: "Micro 5", sans-serif;
 }
+
+
+/* 慢速閃動：大多時間亮，尾段變暗 */
+@keyframes ps-slow-blink {
+  0%  { opacity: 1; }
+  50%    { opacity: 0.1; }
+  100%    { opacity: 1; }
+}
+
+/* 冒號閃爍用 */
+.ps-blink-colon {
+  animation: ps-slow-blink 1s linear infinite;
+}
+
+/* 需要時可暫停動畫（例如 paused 狀態） */
+.ps-anim-paused {
+  animation-play-state: paused;
+}

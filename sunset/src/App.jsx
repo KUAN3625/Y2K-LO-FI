@@ -1,6 +1,5 @@
 import './App.css'
 import AppRoutes from './Home/Routes'
-import TestPomodoro from './components/stoer/T'
 import BgCanvas from './components/three/CanvasHome'
 import { Testbut } from './components/ui/Textbut'
 

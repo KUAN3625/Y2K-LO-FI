@@ -20,21 +20,33 @@ const ClockMode = ({ isHovering }) => {
     const runtimeText = `${mm}:${ss}`;
     {/*--------上方為番茄鐘顯示邏輯----- */}
 
+const isAnyDragging = focus.isDragging || rest.isDragging;
+  const displayText =
+    status === "focus" || status === "rest"
+      ? runtimeText
+      : isAnyDragging || isHovering
+      ? `${focus.time}|${rest.time}`
+      : text;
 
+  // 只在運作中讓冒號閃；暫停/其他狀態不閃
+  const shouldBlink = status === "focus" || status === "rest";
+  const blinkClass = shouldBlink ? "ps-blink-colon" : "";
 
-    const isAnyDragging = focus.isDragging || rest.isDragging;
+  // 如果是 mm:ss 才做拆分，其他（例如 12|5 或一般時間字串）就原樣顯示
+  let content = displayText;
+  if (displayText.includes(":")) {
+    const [m, s] = displayText.split(":");
+    content = (
+      <>
+        <span>{m}</span>
+        <span className={blinkClass}>:</span>
+        <span>{s}</span>
+      </>
+    );
+  }
 
-
-    const displayText =
-        status === "focus" || status === "rest"
-            ? runtimeText //運作中顯示分鐘數
-            : isAnyDragging || isHovering
-                ? `${focus.time}|${rest.time}`   //正常顯示調整面板
-                : text
-
-
-    return <Number text={displayText} />
-}
+  return <Number content={content} />;
+};
 
 
 export default ClockMode

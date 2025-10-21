@@ -63,7 +63,10 @@ export const usePomodoroTimer = create((set, get) => {
             remainingSec: restSec,
             previousStatus: "rest",
           });
-        } else if (status === "rest") {
+          return;
+        }
+
+        if (status === "rest") {
           const nextCycle = cyclesDone + 1;
 
           if (nextCycle < maxCycles) {
@@ -74,16 +77,33 @@ export const usePomodoroTimer = create((set, get) => {
               cyclesDone: nextCycle,
               previousStatus: "focus",
             });
+            return;
           } else {
-            clearInterval(get().intervalId);
+            // ✅ 完成所有迴圈階段 → 進入 done 狀態
+            const doneDuration = 10; // 🔸 停留 10 秒
             set({
               status: "done",
-              remainingSec: 0,
-              intervalId: null,
+              remainingSec: doneDuration,
               cyclesDone: nextCycle,
+              previousStatus: "done",
             });
             return;
           }
+        }
+
+        // ✅ done 狀態的倒數邏輯
+        if (status === "done") {
+          if (remainingSec > 1) {
+            set({ remainingSec: remainingSec - 1 });
+          } else {
+            clearInterval(get().intervalId);
+            set({
+              status: "idle",
+              remainingSec: 0,
+              intervalId: null,
+            });
+          }
+          return;
         }
       }, 1000);
 

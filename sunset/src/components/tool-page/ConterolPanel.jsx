@@ -14,7 +14,7 @@ const ControlPanel = () => {
 
 
   return (
-    <div className="absolute top-full mt-3 w-full rounded-xl border-2 bg-white/20 backdrop-blur-md shadow-lg">
+    <div className="border-2  rounded-2xl px-5 pt-5 pb-8 bg-white/5 backdrop-blur-md">
 
       <div className=" flex flex-col   gap-4 p-5">
 
@@ -30,7 +30,7 @@ const ControlPanel = () => {
         )}
 
 
-        <div className="flex justify-center mt-4">
+        <div className="flex  justify-center mt-4">
           <TimeStear />
         </div>
 

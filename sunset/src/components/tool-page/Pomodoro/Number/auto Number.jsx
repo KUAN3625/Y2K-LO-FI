@@ -1,9 +1,9 @@
 
-const Number = ({text}) =>{
+const Number = ({text, content}) =>{
 
 return(
     <div className=" text-9xl  font-pixel tracking-wider tetx-gray-900 text-center">
-    {text}
+    {content ?? text}
                 </div>
 
 )

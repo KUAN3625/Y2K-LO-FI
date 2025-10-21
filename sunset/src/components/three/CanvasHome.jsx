@@ -6,6 +6,7 @@ import CameraController from './Camer/camerController'
 import { useEffect } from 'react'
 import Role from './2D/Role/Role'
 import { Model } from './Home_v5'
+import SphereByStatus from '../stoer/T'
 
 
 
@@ -39,6 +40,8 @@ const BgCanvas = () => {
         <Model />
         <DebugState />
         {/*<OrbitControls/>*/}
+<OrbitControls/>
+
         <Grid
           cellSize={1}
           cellColor="#ffaa88"
@@ -48,7 +51,11 @@ const BgCanvas = () => {
           fadeStrength={1}
           position={[0, -1.5, 0]}
         />
-        
+
+
+        <SphereByStatus />
+
+
       </Canvas>
 
     </>
