@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import Role from './2D/Role/Role'
 import { Model } from './Home_v5'
 import SphereByStatus from '../stoer/T'
+import { CameraWiggle } from './Camer/cameraWiggle'
 
 
 
@@ -40,8 +41,10 @@ const BgCanvas = () => {
         <Model />
         <DebugState />
         {/*<OrbitControls/>*/}
-<OrbitControls/>
+        <CameraWiggle />
      
+
+
         <Grid
           cellSize={1}
           cellColor="#ffaa88"
