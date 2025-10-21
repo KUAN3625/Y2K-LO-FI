@@ -33,7 +33,7 @@ const BgCanvas = () => {
         frameloop="always"
         dpr={[1, 2]} style={{ imageRendering: "pixelated" }}
         className=' fixed inset-0'>
-
+    
         <CameraController />
         <Role position={[0, 0, 1]} />
         <DLight />
@@ -41,7 +41,7 @@ const BgCanvas = () => {
         <DebugState />
         {/*<OrbitControls/>*/}
 <OrbitControls/>
-
+     
         <Grid
           cellSize={1}
           cellColor="#ffaa88"

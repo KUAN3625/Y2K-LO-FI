@@ -14,6 +14,18 @@ export const usePomodoroTimer = create((set, get) => {
     maxCycles: 0,                // ✅ 設定要跑幾輪
     previousStatus: null,        // ✅ 暫停恢復用
 
+    onCompleteList:[],  //事件回呼(可選)
+    
+       // ✅ 新增：註冊事件（不覆蓋）
+    addOnComplete: (fn) =>
+      set((state) => ({
+        onCompleteList: [...state.onCompleteList, fn],
+      })),
+
+    // ✅ 可選：清除所有事件（有需要時可用）
+    clearOnComplete: () => set({ onCompleteList: [] }),
+
+
     // ▶️ 開始
     start: () => {
       // 清除舊 interval
@@ -102,6 +114,12 @@ export const usePomodoroTimer = create((set, get) => {
               remainingSec: 0,
               intervalId: null,
             });
+
+
+            
+            // ✅ 執行所有 listener
+            const list = get().onCompleteList;
+            list.forEach((fn) => fn?.());
           }
           return;
         }

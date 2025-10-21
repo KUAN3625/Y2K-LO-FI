@@ -23,7 +23,6 @@ const ControlPanel = () => {
 
             <TimeBtn label="  Focus" Component={ControlPanelF} />
             <TimeBtn label="  Rest" Component={ControlRestPanel} />
-
             <TimeBtn label="Cycles" Component={ControlCycles} />
 
           </>
