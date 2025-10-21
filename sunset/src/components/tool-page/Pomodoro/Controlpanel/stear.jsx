@@ -2,23 +2,22 @@ import { usePomodoroTimer } from "../../../stoer/usePomodoroTimer"
 
 
 export const TimeStear = () => {
-    const { status, timeText, start, pause, reset } = usePomodoroTimer()
+    const { status, start, pause, reset } = usePomodoroTimer()
 
     const statusLabel = {
-        idle: "X",
         focus: "專注中",
         reset: "休息中",
         paused: "暫停",
         done: "結束",
-    }[status]
+    }[status];
+
+
 
     return (
         <>
             <div className="flex flex-col items-center gap-3">
                 {/* 顯示狀態文字與時間 */}
                 <p className="text-lg font-bold">{statusLabel}</p>
-                <p className="text-4xl font-mono tracking-widest">{timeText}</p>
-
 
                 {/* 控制按鈕 */}
                 <div className="flex gap-3 mt-2">
@@ -35,6 +34,13 @@ export const TimeStear = () => {
                     {(status === "focus" || status === "rest" || status === "paused") && (
                         <>
                             <button
+                                onClick={start}
+                                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                            >
+                                開始
+                            </button>
+
+                            <button
                                 onClick={pause}
                                 className="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition"
                             >
@@ -49,16 +55,10 @@ export const TimeStear = () => {
                             </button>
                         </>
                     )}
-
                 </div>
-
             </div>
-
-
         </>
 
     )
-
-
 
 } 

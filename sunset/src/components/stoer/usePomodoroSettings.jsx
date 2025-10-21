@@ -1,11 +1,8 @@
-import { useState } from "react"
 import { create } from "zustand"
 
 {/*番茄鐘狀態控制層*/}
 
-
 export const usePomodoroSettings = create((set) => ({
-
     focus:{
         time: 25,
         isDragging: false,
@@ -16,6 +13,8 @@ export const usePomodoroSettings = create((set) => ({
         isDragging: false,
     },
 
+    cycles: 1,
+
 //Focus 控制器
 setFocusTime: (v) => set((state) => ({focus:{ ...state.focus, time: v }})),
 setFocusDragging: (v) => set((state) => ({focus:{ ...state.focus, isDragging: v }})),
@@ -25,5 +24,5 @@ setRestTime: (v) => set((state) => ({ rest: { ...state.rest, time: v } })),
 setRestDragging: (v) => set((state) => ({ rest: { ...state.rest, isDragging: v } })),
 
 
-
+setCycles:(v) => set(() => ({cycles: v}) ),
 }))
