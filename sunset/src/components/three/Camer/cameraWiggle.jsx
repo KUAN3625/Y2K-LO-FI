@@ -1,49 +1,43 @@
-import { CameraShake } from "@react-three/drei"
-import { useEffect, useRef } from "react"
-import useCameraStore from "../../stoer/usebr"
-import { useThree } from "@react-three/fiber"
+import { useRef, useEffect } from 'react'
+import { useFrame } from '@react-three/fiber'
+import { PerspectiveCamera } from '@react-three/drei'
+import useCameraStore from '../../stoer/usebr'
+import * as THREE from 'three'
 
-
-export const CameraWiggle =  (   ) => {
-const {camera} = useThree()
-const shakeRef = useRef()
-
-const {
+export const CameraWiggle = () => {
+  const {
     cameraPosition,
     cameraRotation,
     fov,
     near,
     far,
-} = useCameraStore()
+  } = useCameraStore()
 
-useEffect(() => {
-    camera.position.fromArray(cameraPosition)
-    camera.rotation.fromArray(cameraRotation)
-    camera.fov = fov
-    camera.near = near
-    camera.far = far
-    camera.updateProjectionMatrix()
-  }, [cameraPosition, cameraRotation, fov, near, far])
+  const wiggleGroup = useRef()
 
+  // 👉 每幀讓 group.rotation 加一點 sin 抖動
+  useFrame(({ clock }) => {
+    const t = clock.getElapsedTime()
+    const freq = 0.4 // 頻率
+    const amp = 0.005 // 幅度，越小越穩
 
+    if (wiggleGroup.current) {
+      wiggleGroup.current.rotation.x = Math.sin(t * freq * 1.2) * amp
+      wiggleGroup.current.rotation.y = Math.sin(t * freq * 1.8) * amp
+      wiggleGroup.current.rotation.z = Math.sin(t * freq * 2.0) * amp * 0.5
+    }
+  })
 
-return(
-    
-    <CameraShake
-      ref={shakeRef}
-      maxYaw={0.01}
-      maxPitch={0.01}
-      maxRoll={0.01}
-      yawFrequency={0.2}
-      pitchFrequency={0.2}
-      rollFrequency={0.2}
-      intensity={1}
-      decay={false}
-    />
-
-
-
-)
-
-
+  return (
+    <group ref={wiggleGroup}>
+      <PerspectiveCamera
+        makeDefault
+        position={cameraPosition}
+        rotation={cameraRotation}
+        fov={fov}
+        near={near}
+        far={far}
+      />
+    </group>
+  )
 }
