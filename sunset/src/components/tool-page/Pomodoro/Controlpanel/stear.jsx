@@ -1,12 +1,60 @@
+import { usePomodoroTimer } from "../../../stoer/usePomodoroTimer"
+
 
 export const TimeStear = () => {
+    const { status, timeText, start, pause, reset } = usePomodoroTimer()
+
+    const statusLabel = {
+        idle: "X",
+        focus: "專注中",
+        reset: "休息中",
+        paused: "暫停",
+        done: "結束",
+    }[status]
 
     return (
-        <>              
-        <button className="py-3 w-15 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition">
-            開始
-        </button>
-        
+        <>
+            <div className="flex flex-col items-center gap-3">
+                {/* 顯示狀態文字與時間 */}
+                <p className="text-lg font-bold">{statusLabel}</p>
+                <p className="text-4xl font-mono tracking-widest">{timeText}</p>
+
+
+                {/* 控制按鈕 */}
+                <div className="flex gap-3 mt-2">
+                    {(status === "idle" || status === "done") && (
+                        <button
+                            onClick={start}
+                            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                        >
+                            開始
+                        </button>
+                    )}
+
+                    {/* 正確的分流顯示 */}
+                    {(status === "focus" || status === "rest" || status === "paused") && (
+                        <>
+                            <button
+                                onClick={pause}
+                                className="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition"
+                            >
+                                暫停
+                            </button>
+
+                            <button
+                                onClick={reset}
+                                className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+                            >
+                                重設
+                            </button>
+                        </>
+                    )}
+
+                </div>
+
+            </div>
+
+
         </>
 
     )

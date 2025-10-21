@@ -23,7 +23,7 @@ const TimerPanel = () => {
   >
     
     <div className="relative border-2 rounded-2xl p-5 bg-white/5 backdrop-blur-md">
-      <ClockMode />
+      <ClockMode isHovering={showPanel} />
     </div>
 
     {showPanel && <ControlPanel />}

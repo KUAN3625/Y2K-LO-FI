@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 
+{/* 基本的正常時間運作 */}
+
 
 export function useClock(){
 
