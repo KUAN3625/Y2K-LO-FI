@@ -18,8 +18,8 @@ export const CameraWiggle = () => {
   // 👉 每幀讓 group.rotation 加一點 sin 抖動
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime()
-    const freq = 0.4 // 頻率
-    const amp = 0.005 // 幅度，越小越穩
+    const freq = 0.3 // 頻率
+    const amp = 0.004 // 幅度，越小越穩
 
     if (wiggleGroup.current) {
       wiggleGroup.current.rotation.x = Math.sin(t * freq * 1.2) * amp
