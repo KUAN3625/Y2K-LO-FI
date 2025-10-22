@@ -30,7 +30,7 @@ const Core =() =>{
         className="pointer-events-auto absolute bottom-7 right-9 z-50 p-4 rounded-full 
              bg-white/30 backdrop-blur-md shadow-md 
              hover:bg-white/50 transition"
-        title={isHidden ? "👁️" : "👁️"}
+        
       >
         {isHidden ? <Eye size={25} /> : <EyeOff size={25} />}
       </button>

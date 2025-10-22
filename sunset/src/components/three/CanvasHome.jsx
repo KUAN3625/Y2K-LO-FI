@@ -24,6 +24,14 @@ const DebugState = () => {
 
 
 const BgCanvas = () => {
+useEffect(() => {
+  const canvas = document.querySelector('canvas')
+  if (canvas) {
+    canvas.style.background = 'linear-gradient(to top, #d6783a, #fff6db)'
+  }
+}, [])
+
+
 
   return (
     <>
@@ -32,7 +40,7 @@ const BgCanvas = () => {
         shadows="baked"
         camera={{ fov: 30, near: 0.1, far: 1000, position: [80, 0.3073650447758762, -6.772709083563987] }}
         frameloop="always"
-        dpr={[1, 2]} style={{ imageRendering: "pixelated" }}
+        
         className=' fixed inset-0'>
     
         <CameraController />
@@ -43,18 +51,6 @@ const BgCanvas = () => {
         {/*<OrbitControls/>*/}
         <CameraWiggle />
      
-
-
-        <Grid
-          cellSize={1}
-          cellColor="#ffaa88"
-          sectionSize={5}
-          sectionColor="#ffccaa"
-          fadeDistance={30}
-          fadeStrength={1}
-          position={[0, -1.5, 0]}
-        />
-
 
         <SphereByStatus />
 

@@ -9,7 +9,7 @@ import useCameraStore from "../../stoer/usebr";
 
 const SideMenu = () => {
   const { isOpen, toggle, close } = useMenuStore();
-  const {switchTo} = useCameraStore()
+  const { switchTo } = useCameraStore()
   const navigate = useNavigate();
 
   const handleNavigate = (path, cam) => {
@@ -23,21 +23,21 @@ const SideMenu = () => {
   return (
     <>
       {/* 開關按鈕 */}
-{!isOpen && (
-  <button
-    onClick={toggle}
-    className="pointer-events-auto fixed top-5 left-5 z-[800] p-3 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/90 transition shadow-sm"
-    title="開啟選單"
-  >
-    <Menu size={22} />
-  </button>
-)}
+      {!isOpen && (
+        <button
+          onClick={toggle}
+          className="pointer-events-auto fixed top-5 left-5 z-[800] p-3 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/90 transition shadow-sm"
+          title="開啟選單"
+        >
+          <Menu size={22} />
+        </button>
+      )}
 
-        {/* 點擊空白關閉選單 */}
+      {/* 點擊空白關閉選單 */}
       {isOpen && (
         <div
           onClick={close}
-          className="pointer-events-auto fixed inset-0 z-[9998] bg-black/0 cursor-pointer"
+          className="pointer-events-auto fixed inset-0 z-[9998] bg-black/0 "
         />
       )}
 
@@ -49,21 +49,21 @@ const SideMenu = () => {
       >
         <div className="flex flex-col justify-between h-full py-6">
           {/* 上半部 */}
-<nav className="flex flex-col gap-5">
-{[
-  { name: "Home", path: "/core", cam:"core"},
-  { name: "To-do-list", path: "/todo" ,cam:"menu"},
-  { name: "About", path: "/about", cam:"menu"},
-].map(({ name, path, cam }) => (
-  <button
-    key={name}
-    onClick={() => handleNavigate(path, cam)} // ✅ 這裡執行跳轉
-    className="text-left px-9 py-10 text-5xl font-medium tracking-wide leading-snug text-gray-800 hover:bg-white/90 transition"
-  >
-    {name}
-  </button>
-))}
-</nav>
+          <nav className="flex flex-col gap-5">
+            {[
+              { name: "Home", path: "/core", cam: "core" },
+              { name: "To-do-list", path: "/todo", cam: "twoScene" },
+              { name: "About", path: "/about", cam: "menu" },
+            ].map(({ name, path, cam }) => (
+              <button
+                key={name}
+                onClick={() => handleNavigate(path, cam)} // ✅ 這裡執行跳轉
+                className="text-left px-9 py-10 text-5xl font-medium tracking-wide leading-snug text-gray-800 hover:bg-white/90 transition"
+              >
+                {name}
+              </button>
+            ))}
+          </nav>
 
 
           {/* 下半部 */}
@@ -77,8 +77,8 @@ const SideMenu = () => {
                 <Settings size={20} />
               </button>
               <button className="p-3 rounded-full bg-white/60 hover:bg-white/80 transition">
-                <LogOut size={20} 
-                onClick={() => handleNavigate("/login", "login")}/>
+                <LogOut size={20}
+                  onClick={() => handleNavigate("/login", "login")} />
               </button>
             </div>
           </div>
