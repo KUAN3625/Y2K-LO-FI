@@ -5,9 +5,11 @@ import { useMenuStore } from "../../stoer/ui/useMenuStore";
 import { Menu, X, Settings, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import useCameraStore from "../../stoer/usebr";
+import { useSFXStore } from "../../stoer/useSFXStore";
 
 
 const SideMenu = () => {
+  const play = useSFXStore((state) => state.play )
   const { isOpen, toggle, close } = useMenuStore();
   const { switchTo } = useCameraStore()
   const navigate = useNavigate();
@@ -25,7 +27,10 @@ const SideMenu = () => {
       {/* 開關按鈕 */}
       {!isOpen && (
         <button
-          onClick={toggle}
+          onClick={() => {
+                play("click");
+                console.log("簡單的音效測試!");
+                toggle();}}
           className="pointer-events-auto fixed top-5 left-5 z-[800] p-3 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/90 transition shadow-sm"
           title="開啟選單"
         >

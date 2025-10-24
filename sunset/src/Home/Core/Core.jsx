@@ -1,16 +1,17 @@
 import { useState } from "react"
 import Musicbox from "../../components/tool-page/music/Musicplay"
 import TimerPanel from "../../components/tool-page/Pomodoro/TimePanel"
-import { Eye, EyeOff } from "lucide-react";
 import SideMenu from "../../components/ui/Settings_UI/Side";
-
+import { useSFXStore } from "../../components/stoer/useSFXStore";
+import HideToggleButton from "../../components/ui/Eyes";
 
 
 const Core =() =>{
-    const [isHidden, setIsHidden] = useState(false);
-
+  const [isHidden, setIsHidden] = useState(false);
+  const play = useSFXStore((state) => state.play )
+  
     return(
-        <main className="pointer-events-auto relative w-full min-h-screen text-gray-800 px-6 py-8">
+        <main className=" relative w-full min-h-screen text-gray-800 px-6 py-8">
         
         <div
         className={`transition-opacity duration-500 ${
@@ -25,15 +26,10 @@ const Core =() =>{
       </div>
 
 
-        <button
-        onClick={() => setIsHidden(!isHidden)}
-        className="pointer-events-auto absolute bottom-7 right-9 z-50 p-4 rounded-full 
-             bg-white/30 backdrop-blur-md shadow-md 
-             hover:bg-white/50 transition"
-        
-      >
-        {isHidden ? <Eye size={25} /> : <EyeOff size={25} />}
-      </button>
+      <HideToggleButton
+      isHidden={ isHidden }
+      onToggle={() => setIsHidden(!isHidden)}
+      />
 
 
         </main>

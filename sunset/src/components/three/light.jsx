@@ -27,24 +27,16 @@ const DLight = () => {
 
 {/*下方後製*/}
 <EffectComposer>
-  <Bloom luminanceThreshold={0.5} luminanceSmoothing={0.9} height={100} />
-  <Noise opacity={0.04} /> {/* 顆粒感 */}
-  <Vignette eskil={false} offset={0.1} darkness={-1.3} />
+  {/* <Bloom luminanceThreshold={0.5} luminanceSmoothing={0.9} height={100} /> */}
+  {/* <Noise opacity={0.04} /> 顆粒感 */}
+  {/* <Vignette eskil={false} offset={0.1} darkness={-1.3} /> */}
 </EffectComposer>
 
 
 {/* 霧 */}
-<fog attach="fog" args={['#ffeed8', 10, 250]} />
+{/* <fog attach="fog" args={['#ffeed8', 10, 250]} /> */}
 
-
-<ContactShadows
-  position={[0, -1.5, 0]}
-  opacity={0.4}
-  scale={50}
-  blur={2}
-  far={10}
-/>
-
+{/* 上面特效暫時關閉 */}
 
         </>
     )

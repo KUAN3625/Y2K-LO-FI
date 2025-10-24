@@ -1,9 +1,9 @@
 import { Route } from 'react-router-dom'
 import { Canvas, useThree } from '@react-three/fiber'
-import { ContactShadows, Environment, Fisheye, Grid, OrbitControls } from '@react-three/drei'
+import { ContactShadows, Environment, Fisheye, Grid, OrbitControls, Preload } from '@react-three/drei'
 import DLight from './light'
 import CameraController from './Camer/camerController'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import Role from './2D/Role/Role'
 import { Model } from './Home_v5'
 import SphereByStatus from '../stoer/T'
@@ -42,6 +42,7 @@ useEffect(() => {
         frameloop="always"
         
         className=' fixed inset-0'>
+      
     
         <CameraController />
         <Role position={[0, 0, 1]} />
@@ -50,10 +51,9 @@ useEffect(() => {
         <DebugState />
         {/*<OrbitControls/>*/}
         <CameraWiggle />
-     
+ 
 
         <SphereByStatus />
-
 
       </Canvas>
 

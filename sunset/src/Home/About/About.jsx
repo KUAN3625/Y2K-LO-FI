@@ -6,19 +6,14 @@ const About =()=> {
 
     return(
         <div className="pointer-events-auto flex">
-        <SideMenu/>
-        <h1>關於頁面
-        </h1>
+            <SideMenu/>
+        <aside className="fixed top-0 left-0 h-screen w-[260px] border-r-4 border-black z-[-9999] flex items-center justify-center">
+        <p className="text-black text-sm font-mono">SideMenu 區域</p>
+      </aside>
 
-            <button onClick={() => {
-                play("click");
-                console.log("簡單的音效測試!")
-            }}>
-                    OK
 
-             </button>
 
-        <p>請看</p>
+
         </div>
 
     )
