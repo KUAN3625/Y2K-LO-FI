@@ -4,6 +4,9 @@ import TimerPanel from "../../components/tool-page/Pomodoro/TimePanel"
 import SideMenu from "../../components/ui/Settings_UI/Side";
 import { useSFXStore } from "../../components/stoer/useSFXStore";
 import HideToggleButton from "../../components/ui/Eyes";
+import CassetteCarousel from "../../components/ui/Music/Music_CC/CassetteCarousel";
+
+
 
 
 const Core =() =>{
@@ -23,6 +26,10 @@ const Core =() =>{
         <TimerPanel />
 
         <Musicbox />
+        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 w-[86vw] z-30">
+        
+           <CassetteCarousel/>
+          </div>
       </div>
 
 

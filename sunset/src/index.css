@@ -47,3 +47,12 @@ h6 {
 .ps-anim-paused {
   animation-play-state: paused;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE / Edge */
+  scrollbar-width: none;     /* Firefox */
+}
