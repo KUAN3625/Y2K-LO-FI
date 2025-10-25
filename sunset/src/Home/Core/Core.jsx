@@ -27,7 +27,7 @@ const Core =() =>{
 
         <Musicbox />
          
-        <div className="pointer-events-auto fixed bottom-32 left-1/2 -translate-x-1/2 w-[90vw] z-99999">
+        <div className="pointer-events-auto fixed bottom-43 left-1/2 -translate-x-1/2 w-[92vw] ">
            <CassetteCarousel/>
         
           </div>
