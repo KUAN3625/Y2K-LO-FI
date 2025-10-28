@@ -16,7 +16,7 @@ function App() {
 
 
       <div className=' flex  w-screen h-screen'>
-      <BgCanvas />
+      {/* <BgCanvas /> */}
       </div>
 
     </>

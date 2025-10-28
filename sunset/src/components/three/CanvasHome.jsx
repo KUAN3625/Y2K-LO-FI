@@ -49,7 +49,7 @@ useEffect(() => {
         <DLight />
         <Model />
         <DebugState />
-        {/*<OrbitControls/>*/}
+        {/* <OrbitControls/> */}
         <CameraWiggle />
  
 

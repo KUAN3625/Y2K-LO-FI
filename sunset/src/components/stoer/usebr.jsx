@@ -30,13 +30,22 @@ fov: 30,  near: 0.1, far: 1000,
   near: 0.1,
   far: 1000,
 },
+
   twoScene: {
   cameraPosition: [43.93124, 18.95469, 46.26991],
-  cameraRotation: [-0.04962, 0.90411, 0.03900],
+  cameraRotation: [-0.04962, 0.90411, 0.039],
   fov: 40,
   near: 0.1,
   far: 1000,
 },
+
+threeScene: {
+  cameraPosition: [120.01746, 19.47653, 12.68547],
+  cameraRotation: [-0.12415, 0.90898, 0.09813],
+  fov: 30,
+  near: 0.1,
+  far: 1000,
+}
 
 }
 
