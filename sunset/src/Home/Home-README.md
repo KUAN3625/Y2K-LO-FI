@@ -28,3 +28,12 @@ Todolist
 Settings 設定
 
 About 收尾 
+
+
+音樂播放器使用指南
+
+title	string	"MusicName"	顯示音樂名稱
+artist	string	"Artist"	顯示演出者
+coverUrl	string	""	封面圖片路徑（可空）
+progress	number	0	進度（0–1）
+className	string	""	外層樣式擴充

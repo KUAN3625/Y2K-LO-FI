@@ -28,6 +28,8 @@ const Musicbox = ({
       role="region"
       aria-label="音樂播放器"
     >
+
+
       <div className="flex items-center gap-3 min-w-0">
         <div
           className="h-16 w-16 rounded-md overflow-hidden bg-amber-600 shrink-0"
@@ -49,12 +51,16 @@ const Musicbox = ({
         </div>
       </div>
 
+
+
       <div className="h-1 w-full bg-black/10 rounded-full overflow-hidden" aria-hidden="true">
         <div
           className="h-full bg-gray-900"
           style={{ width: `${pct * 100}%` }}
         />
       </div>
+
+      
     </section>
   );
 };
