@@ -1,7 +1,9 @@
 import { usePomodoroTimer } from "../../../stoer/usePomodoroTimer"
+import { useSFXStore } from "../../../stoer/useSFXStore";
 
 
 export const TimeStear = () => {
+  const play = useSFXStore((state) => state.play);
     const { status, start, pause, reset } = usePomodoroTimer()
 
     const statusLabel = {
@@ -24,7 +26,11 @@ export const TimeStear = () => {
   <div className="flex gap-4 mt-3">
     {(status === "idle" || status === "done") && (
       <button
-        onClick={start}
+        onClick={()=>{
+            start();
+            play("ui.click");
+
+          }}
         className="min-w-[50px] py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition active:translate-y-[1px]"
       >
         開始
@@ -34,13 +40,21 @@ export const TimeStear = () => {
     {status === "paused" && (
       <>
         <button
-          onClick={start}
+          onClick={()=>{
+            start();
+            play("ui.click");
+
+          }}
           className=" min-w-[50px] py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition active:translate-y-[1px]"
         >
           繼續
         </button>
         <button
-          onClick={reset}
+          onClick={()=>{
+            reset();
+            play("ui.click");
+
+          }}
           className="min-w-[50px] py-2 bg-rose-500 text-white rounded-md hover:bg-rose-600 transition active:translate-y-[1px]"
         >
           重設
@@ -50,7 +64,11 @@ export const TimeStear = () => {
 
     {(status === "focus" || status === "rest") && (
       <button
-        onClick={pause}
+        onClick={()=>{
+            pause();
+            play("ui.click");
+
+          }}
         className="min-w-[50px] py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600 transition active:translate-y-[1px]"
       >
         暫停

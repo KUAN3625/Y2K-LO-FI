@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useSFXStore } from "../stoer/useSFXStore";
 
 
 
 const Loginbtn = (props) => {
+  const play = useSFXStore((state) => state.play);
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -14,7 +16,11 @@ const Loginbtn = (props) => {
   }
 
   return (
-    <div onClick={handleClick}
+    <div onClick={() =>{
+      handleClick();
+      play("ui.click");
+    }  
+    }
       className={`pointer-events-auto px-8 h-10 border-2 border-black rounded-full w-64 grid place-items-center mx-auto
      hover:shadow-2xl hover:bg-black hover:text-white
      ${props.className || ""}`}
