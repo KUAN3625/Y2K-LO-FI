@@ -22,7 +22,7 @@ const endDrag = () => setFocusDragging(false)
       <label className="flex flex-col gap-2">
 
         <Slider
-          min={0.1}
+          min={5}
           max={60}
           step={5}
           value={focus.time}

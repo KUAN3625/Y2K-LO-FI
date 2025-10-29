@@ -25,16 +25,16 @@ const DLight = () => {
   shadow-mapSize-height={1024}
 />
 
-{/* 下方後製
-<EffectComposer>
+
+{/* <EffectComposer>
   <Bloom luminanceThreshold={0.5} luminanceSmoothing={0.9} height={100} />
   <Noise opacity={0.04} /> 
   <Vignette eskil={false} offset={0.1} darkness={-1.3} />
-</EffectComposer> */}
+</EffectComposer>  */}
 
 
 {/* 霧 */}
-{/* <fog attach="fog" args={['#ffeed8', 10, 250]} /> */}
+<fog attach="fog" args={['#ffeed8', 10, 250]} />
 
 {/* 上面特效暫時關閉 */}
 

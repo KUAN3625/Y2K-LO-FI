@@ -28,7 +28,7 @@ const SideMenu = () => {
       {!isOpen && (
         <button
           onClick={() => {
-                play("click");
+                play("ui.click");
                 console.log("簡單的音效測試!");
                 toggle();}}
           className="pointer-events-auto fixed top-5 left-5 z-[800] p-3 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/90 transition shadow-sm"

@@ -29,3 +29,36 @@ export const PetSpawner = () => {
 };
 
 就像是上面這樣
+
+
+音樂播放使用Howl 
+export const useSFXStore = create(() => ({
+  // 儲存所有音效檔
+  sounds: {
+    click: new Howl({
+      src: ["/SFX/click1.ogg", "/SFX/click.mp3"],
+      volume: 0.4,
+    }),
+  },
+
+
+
+  // 💿播放音效的函式
+  play: (key) => {
+    const { sounds } = useSFXStore.getState(); 
+    // 取出目前的 sounds 物件
+    const sound = sounds[key]; // 找出指定音效
+    if (sound) sound.play(); // 播放
+  },
+}));
+
+
+使用時在組件內加入state狀態
+const MyButton = () => {
+  const play = useSFXStore((state) => state.play);
+}
+
+然後將組件內部加上
+      onClick={() => {
+        play("click"); // 播放音效
+      }}

@@ -53,7 +53,7 @@ useEffect(() => {
         <CameraWiggle />
  
 
-        <SphereByStatus />
+        {/* <SphereByStatus /> */}
 
       </Canvas>
 

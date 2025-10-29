@@ -3,16 +3,28 @@ import { Howl } from "howler";
 
 
 export const useSFXStore = create(() => ({
+    //儲存各種音效
     sounds:{
-        click: new Howl({src:["/SFX/click1.ogg","/SFX/click.mp3"], volume: 0.4}),
+        ui:{
+            click: new Howl({src:["/SFX/click1.ogg","/SFX/click.mp3"], 
+                volume: 0.4}),
+
+
+        }
 
     },
 
-    play:(key) => {
-
+    play:(keyPath) => {
         const{sounds} = useSFXStore.getState();
-        const sound = sounds[key];
-        if (sound) sound.play();
+
+        //keyPath拆分
+        const keys = keyPath.split(".")
+        let sound = sounds;
+        for(const k of keys){
+            sound = sound?.[k];
+            if(!sound) return;
+        }
+        sound.play();
     }
 
 

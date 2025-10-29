@@ -16,7 +16,7 @@ const HideToggleButton = ({ isHidden, onToggle }) => {
     <button
       onClick={() => {
         onToggle();
-        play("click");
+        play("ui.click");
       }}
       className="pointer-events-auto absolute bottom-7 right-9 z-50 p-4 rounded-full
                  bg-white/30 backdrop-blur-md shadow-md
