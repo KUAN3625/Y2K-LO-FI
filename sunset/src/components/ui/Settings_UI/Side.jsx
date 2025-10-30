@@ -57,8 +57,8 @@ const SideMenu = () => {
           <nav className="flex flex-col gap-5">
             {[
               { name: "Home", path: "/core", cam: "core" },
-              { name: "To-do-list", path: "/todo", cam: "twoScene" },
-              { name: "About", path: "/about", cam: "menu" },
+              { name: "To-do-list", path: "/todo", cam: "threeScene" },
+              { name: "About", path: "/about", cam: "twoScene" },
             ].map(({ name, path, cam }) => (
               <button
                 key={name}
