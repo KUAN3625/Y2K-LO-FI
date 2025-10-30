@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Howl } from "howler";
 
 const Musicbox = ({ songs = [] }) => {
@@ -8,21 +8,46 @@ const Musicbox = ({ songs = [] }) => {
 
   const currentSong = songs[currentIndex];
 
-  // 播放當前歌曲
-  const playSong = () => {
+  // 🧠 播放邏輯獨立出來
+  const loadAndPlay = (index) => {
+    // 若已有播放中音樂 → 停止並卸載
     if (soundRef.current) {
-      soundRef.current.stop(); // 停止舊音樂
+      soundRef.current.stop();
+      soundRef.current.unload();
     }
 
+    // 建立新 Howl 實例
     const sound = new Howl({
-      src: [currentSong.url],
-      html5: true, // 強制使用 HTML5 Audio，避免短音中斷
+      src: [songs[index].url],
+      html5: true,
       volume: 0.6,
+      onend: () => {
+        // ✅ 歌曲播完後自動換下一首
+        const next = (index + 1) % songs.length;
+        setCurrentIndex(next);
+      },
     });
 
     soundRef.current = sound;
     sound.play();
     setIsPlaying(true);
+  };
+
+  // 🎵 當 currentIndex 改變時，自動載入新曲目
+  useEffect(() => {
+    if (isPlaying) {
+      loadAndPlay(currentIndex);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex]);
+
+  const playSong = () => {
+    if (!soundRef.current) {
+      loadAndPlay(currentIndex);
+    } else {
+      soundRef.current.play();
+      setIsPlaying(true);
+    }
   };
 
   const pauseSong = () => {
@@ -33,17 +58,14 @@ const Musicbox = ({ songs = [] }) => {
   };
 
   const nextSong = () => {
-    const next = (currentIndex + 1) % songs.length;
-    setCurrentIndex(next);
-    playSong();
+    setCurrentIndex((prev) => (prev + 1) % songs.length);
   };
 
   const prevSong = () => {
-    const prev = (currentIndex - 1 + songs.length) % songs.length;
-    setCurrentIndex(prev);
-    playSong();
+    setCurrentIndex((prev) => (prev - 1 + songs.length) % songs.length);
   };
 
+  // 🚀 UI
   return (
     <section
       className="
