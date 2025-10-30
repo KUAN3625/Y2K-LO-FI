@@ -4,23 +4,22 @@ Command: npx gltfjsx@6.5.3 public/3D/05.glb -o src/components/three/Home_v5.jsx
 */
 
 import React from 'react'
+import { MeshStandardMaterial } from 'three'
 import { useGLTF } from '@react-three/drei'
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('/3D/16.glb')
+  const redMaterial = new MeshStandardMaterial({ color: 'red', roughness: 0.5 })
+
+
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Circle008.geometry} material={nodes.Circle008.material} position={[-516.312, -15.475, -217.289]} rotation={[Math.PI / 2, 0, -1.283]} scale={65.701} />
-      <mesh geometry={nodes.Cube.geometry} material={materials.PaletteMaterial002} position={[77.882, -1.564, -5.141]} rotation={[-Math.PI, 0, -Math.PI]} scale={2.034} />
-      <mesh geometry={nodes.bady.geometry} material={materials.PaletteMaterial004} position={[37.081, 1.422, 15.89]} rotation={[Math.PI, -0.85, Math.PI]} scale={0.077} />
-      <mesh geometry={nodes.Circle001.geometry} material={materials.PaletteMaterial005} position={[37.043, 0.734, 15.77]} rotation={[-Math.PI, 0.808, -Math.PI]} scale={[0.022, 0.022, 0.029]} />
-      <mesh geometry={nodes.Plane005.geometry} material={materials.PaletteMaterial007} position={[36.784, 2.133, 15.072]} rotation={[0, 0.763, -Math.PI / 2]} scale={0.219} />
-      <mesh geometry={nodes.Plane011.geometry} material={materials['Material.035']} position={[37.092, 0.662, 15.84]} rotation={[Math.PI / 2, 0, -2.334]} scale={[0.095, 0.031, 0.031]} />
-      <mesh geometry={nodes.SCREEN.geometry} material={materials['Material.041']} position={[37.1, 1.49, 15.869]} rotation={[Math.PI, -0.85, Math.PI]} scale={0.077} />
-      <mesh geometry={nodes.Plane002.geometry} material={materials.PaletteMaterial006} position={[36.848, -1.413, 16.13]} rotation={[0, 0.763, 0]} scale={0.219} />
+      <mesh geometry={nodes.Circle008.geometry} material={nodes.Circle008.material} position={[-516.312, -15.475, -217.289]} rotation={[Math.PI / 2, 0, -1.283]} scale={65.701} receiveShadow />
+      <mesh geometry={nodes.Cube.geometry} material={materials.PaletteMaterial002} position={[77.882, -1.564, -5.141]} rotation={[-Math.PI, 0, -Math.PI]} scale={2.034} receiveShadow />
+      <mesh geometry={nodes.bady.geometry} material={materials.PaletteMaterial004} position={[37.081, 1.422, 15.89]} rotation={[Math.PI, -0.85, Math.PI]} scale={0.077}  receiveShadow/>
       <mesh geometry={nodes.ground.geometry} material={materials.Ground} position={[0, -1.389, 0]} />
-      <mesh geometry={nodes.Cube001.geometry} material={materials['Well-01']} position={[61.996, -0.046, -0.189]} />
-      <mesh geometry={nodes.Cube002.geometry} material={materials['Well-01']} position={[5.932, 0, 34]} rotation={[0, -0.811, 0]} />
+      <mesh geometry={nodes.Cube001.geometry} material={materials['Well-01']} position={[61.996, -0.046, -0.189]} receiveShadow/>
+      <mesh geometry={nodes.Cube002.geometry} material={materials['Well-01']} position={[5.932, 0, 34]} rotation={[0, -0.811, 0]} receiveShadow/>
     </group>
   )
 }

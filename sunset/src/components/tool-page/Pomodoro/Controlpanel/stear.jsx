@@ -1,19 +1,83 @@
-import { usePomodoroRuntime } from "../../../stoer/Pomodoro/usePomodoroRuntime"
+import { usePomodoroTimer } from "../../../stoer/usePomodoroTimer"
+import { useSFXStore } from "../../../stoer/useSFXStore";
+
 
 export const TimeStear = () => {
-    const { start } = usePomodoroRuntime()
+  const play = useSFXStore((state) => state.play);
+    const { status, start, pause, reset } = usePomodoroTimer()
+
+    const statusLabel = {
+        focus: "Focus",
+        rest: "Break",
+        paused: "Paused",
+        done: "Completed",
+    }[status];
+
+
 
     return (
-        <>              
-        <button className="py-4 w-15 text-2xl bg-gray-900 font-pixel text-white rounded-lg hover:bg-gray-700 transition"
-        onClick={start} >
-            OK
+<div className="flex flex-col  items-center gap-3">
+  {/* 狀態文字 */}
+  {(status === "focus" || status === "rest" || status === "paused") && (
+    <p className="text-lg font-black ">{statusLabel}</p>
+  )}
+
+  {/* 控制按鈕 */}
+  <div className="flex gap-4 mt-3">
+    {(status === "idle" || status === "done") && (
+      <button
+        onClick={()=>{
+            start();
+            play("ui.click");
+
+          }}
+        className="min-w-[50px] py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition active:translate-y-[1px]"
+      >
+        開始
+      </button>
+    )}
+
+    {status === "paused" && (
+      <>
+        <button
+          onClick={()=>{
+            start();
+            play("ui.click");
+
+          }}
+          className=" min-w-[50px] py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition active:translate-y-[1px]"
+        >
+          繼續
         </button>
-        
-        </>
+        <button
+          onClick={()=>{
+            reset();
+            play("ui.click");
+
+          }}
+          className="min-w-[50px] py-2 bg-rose-500 text-white rounded-md hover:bg-rose-600 transition active:translate-y-[1px]"
+        >
+          重設
+        </button>
+      </>
+    )}
+
+    {(status === "focus" || status === "rest") && (
+      <button
+        onClick={()=>{
+            pause();
+            play("ui.click");
+
+          }}
+        className="min-w-[50px] py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600 transition active:translate-y-[1px]"
+      >
+        暫停
+      </button>
+    )}
+  </div>
+</div>
+
 
     )
-
-
 
 } 

@@ -1,9 +1,10 @@
-import { DirectionalLight } from "three"
-import { Environment } from '@react-three/drei'
-import { useLoader } from "@react-three/fiber"
-import { RGBELoader } from "three/examples/jsm/Addons.js"
+import { DirectionalLight, Fog } from "three"
+import { ContactShadows, Environment, Sky } from '@react-three/drei'
+import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing'
 
 const DLight = () => {
+
+
 
     return (
 
@@ -11,20 +12,31 @@ const DLight = () => {
             <Environment
                 files=" /HDR/rosendal_park_sunset_2k.hdr"
                 background={false}
-                environmentIntensity={1}
+                environmentIntensity={0.7}
+                
                 castShadow
             />
-            <directionalLight
-                castShadow
-                position={[5, 10, 5]}
-                intensity={1}
-                shadow-mapSize-width={2048}
-                shadow-mapSize-height={2048}
-                shadow-bias={-0.0001}
-            />
-            
+<directionalLight
+  position={[30, 60, -30]}
+  intensity={1.5}
+  color={'#ffdca8'}
+  castShadow
+  shadow-mapSize-width={1024}
+  shadow-mapSize-height={1024}
+/>
 
-            
+
+{/* <EffectComposer>
+  <Bloom luminanceThreshold={0.5} luminanceSmoothing={0.9} height={100} />
+  <Noise opacity={0.04} /> 
+  <Vignette eskil={false} offset={0.1} darkness={-1.3} />
+</EffectComposer>  */}
+
+
+{/* 霧 */}
+<fog attach="fog" args={['#ffeed8', 10, 250]} />
+
+{/* 上面特效暫時關閉 */}
 
         </>
     )

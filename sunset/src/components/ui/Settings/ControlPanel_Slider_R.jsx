@@ -1,5 +1,5 @@
 
-import { usePomodoroSettings } from "../../stoer/Pomodoro/usePomodoroSettings"
+import { usePomodoroSettings } from "../../stoer/usePomodoroSettings"
 import Slider from "./Slider"
 
 {/* 滑桿元件_番茄_Rest*/}

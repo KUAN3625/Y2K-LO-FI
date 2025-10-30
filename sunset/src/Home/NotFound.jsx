@@ -6,9 +6,9 @@ const NotFound =()=> {
 
     return(
 
-        <div className="h-screen w-screen  ">
+        <div className="flex items-center justify-center  h-screen w-screen  ">
 
-        <h1 className=" pb-4 mx-40 w-30 h-40 m-40 w40 ">404</h1>
+        <h1 className="text-9xl text-white/60 font-bold">404</h1>
 
         </div>
 
