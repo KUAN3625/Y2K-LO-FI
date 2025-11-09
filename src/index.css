@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
+@import "tailwindcss";
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+
+*,
+::after,
+::before,
+::backdrop,
+::file-selector-button {
+  margin: 0;
+  padding: 0;
+}
+
+CSS
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+@theme {
+  --font-pixel: "Micro 5", sans-serif;
+}
+
+
+/* 慢速閃動：大多時間亮，尾段變暗 */
+@keyframes ps-slow-blink {
+  0%  { opacity: 1; }
+  50%    { opacity: 0.1; }
+  100%    { opacity: 1; }
+}
+
+/* 冒號閃爍用 */
+.ps-blink-colon {
+  animation: ps-slow-blink 1s linear infinite;
+}
+
+/* 需要時可暫停動畫（例如 paused 狀態） */
+.ps-anim-paused {
+  animation-play-state: paused;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE / Edge */
+  scrollbar-width: none;     /* Firefox */
+}
