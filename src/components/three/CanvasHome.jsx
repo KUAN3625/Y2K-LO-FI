@@ -10,6 +10,8 @@ import { CameraWiggle } from './Camer/cameraWiggle'
 
 import { Site } from './004'
 import { Humen } from './005'
+import { MOD } from '../../../public/011'
+import { GODD } from '../../../public/012'
 
 
 const DebugState = () => {
@@ -44,6 +46,7 @@ useEffect(() => {
       
     
         <CameraController />
+        <GODD />
         <Humen rotation={[0, Math.PI / 3, 0]} scale={0.56}  position={[ 38, -1.15, -2.5]}/>
         <DLight />
         <Site />

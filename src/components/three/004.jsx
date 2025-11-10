@@ -28,7 +28,7 @@ export function Site(props) {
       <group name="Scene">
         <mesh name="ground" geometry={nodes.ground.geometry} material={materials.材質} position={[18.597, -1.028, -0.179]} rotation={[-Math.PI, 0, 0]} scale={[-0.185, -0.085, -0.256]} />
         <mesh name="Circle" geometry={nodes.Circle.geometry} material={nodes.Circle.material} position={[-50.33, -3.351, 19.85]} rotation={[0, 0, -Math.PI / 2]} scale={0.108} />
-        <mesh name="立方體" geometry={nodes.立方體.geometry} material={nodes.立方體.material} position={[5.657, 6.801, 16.593]} rotation={[0, 0.699, 0]} />
+        {/* <mesh name="立方體" geometry={nodes.立方體.geometry} material={nodes.立方體.material} position={[5.657, 6.801, 16.593]} rotation={[0, 0.699, 0]} /> */}
       </group>
     </group>
   )
