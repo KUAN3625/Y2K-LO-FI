@@ -76,7 +76,7 @@ const Todolist = () => {
       <div
         draggable="true"
         onDragStart={(e) => e.dataTransfer.setData("note", "true")}
-        className="pointer-events-auto absolute left-0 top-0 w-[100px] h-full bg-red-400 hover:bg-red-300/60 cursor-grab active:cursor-grabbing"
+        className="pointer-events-auto absolute left-0 top-0 w-[100px] h-full bg-white/60 hover:bg-gray-50/30 cursor-grab active:cursor-grabbing"
       ></div>
 
       {/* 便條容器 */}

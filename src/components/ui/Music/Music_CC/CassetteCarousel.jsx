@@ -32,7 +32,7 @@ const CassetteCarousel = () => {
       {!showAlbums && (
 <button
   onClick={() => setShowAlbums(true)}
-  className="fixed left-1 top-[42%] -translate-y-1/2 z-[99999]
+  className="fixed left-10 top-[60%] -translate-y-1/2 z-[99999]
              border-white/40 text-white/70 rounded-md border-2
              w-[40px] h-[100px] flex items-center justify-center text-2xl
              bg-white/5 backdrop-blur-md
@@ -47,30 +47,34 @@ const CassetteCarousel = () => {
 
       {/* 專輯列：用同一個垂直錨點，與按鈕同高度 */}
       {showAlbums && (
-        <div
-          ref={containerRef}
-          className="fixed top-[42%] -translate-y-1/2 left-1/2 -translate-x-1/2 z-[99998]
-                      rounded-2xl px-5 pt-5 pb-8 bg-white/5"
-        >
-          <div className="flex flex-col gap-4 p-5">
-            <div className="flex gap-10 items-center justify-center">
-              {albums.map((a) => (
-                <div
-                  key={a.id}
-                  onClick={() => {
-                    switchTo(a.cma);
-                    setShowAlbums(false)}}
-                  className="w-[150px] h-[100px] bg-white/10 text-white text-2xl
-                             rounded-lg border-2 flex items-center justify-center cursor-pointer transition
-                             hover:bg-white/50 hover:text-black "
-                >
-                  {a.title}
-                </div>
-              ))}
-            </div>
+  <div
+    ref={containerRef}
+    className="fixed top-[60%] -translate-y-1/2 left-[100px] z-[99998]
+               rounded-2xl px-6 pt-5 pb-8 bg-white/10 border border-white/30
+               backdrop-blur-md shadow-lg"
+  >
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-6 justify-center">
+        {albums.map((a) => (
+          <div
+            key={a.id}
+            onClick={() => {
+              switchTo(a.cma);
+              setShowAlbums(false);
+            }}
+            className="w-[140px] h-[90px] bg-white/10 text-white text-2xl
+                       rounded-lg border-2 border-white/30 flex items-center justify-center
+                       cursor-pointer transition-all duration-200
+                       hover:bg-white/50 hover:text-black"
+          >
+            {a.title}
           </div>
-        </div>
-      )}
+        ))}
+      </div>
+    </div>
+  </div>
+)}
+
     </>
   );
 };

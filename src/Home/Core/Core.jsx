@@ -23,9 +23,9 @@ const Core = () => {
     <TimerPanel />
     <Musicbox songs={songsdata} />
 
-    <div className="pointer-events-auto fixed bottom-10 left-1/2 -translate-x-1/2 w-[90vw] max-w-[1000px]">
+   
       <CassetteCarousel />
-    </div>
+
   </div>
 
   <HideToggleButton
