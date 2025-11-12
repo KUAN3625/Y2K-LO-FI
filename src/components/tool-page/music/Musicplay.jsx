@@ -99,7 +99,7 @@ const Musicbox = ({ songs = [] }) => {
             src={currentSong?.coverUrl}
             alt=""
             className="h-full w-full object-cover"
-            draggable={false}
+            draggable={false }
           />
         </div>
 
