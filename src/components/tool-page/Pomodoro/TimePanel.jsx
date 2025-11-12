@@ -27,22 +27,34 @@ const TimerPanel = () => {
     }, 400)
   }
 
-  return (
-    <main className="relative w-full min-h-screen overflow-x-hidden overflow-y-hidden">
-      <section
-        className="pointer-events-auto absolute top-4 right-10 w-65 min-h-20 rounded-2xl"
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
-      >
-        <div className="relative border-2 rounded-2xl p-5 bg-white/5 backdrop-blur-md transition-all duration-200">
-          <ClockMode isHovering={showPanel} />
-          <PomodoroCycles />
-        </div>
+return (
+  <section
+  className="pointer-events-auto fixed top-[clamp(1rem,3vh,2rem)] right-[clamp(1rem,3vw,2rem)]
+             w-[clamp(16rem,25vw,22rem)] max-w-[90vw] rounded-2xl z-[50]
+             flex flex-col items-stretch"
+  onMouseEnter={handleEnter}
+  onMouseLeave={handleLeave}
+>
+  <div className="relative border-2 border-black/20 rounded-2xl
+                  p-[clamp(1rem,2.5vh,1.5rem)]
+                  bg-white/40 backdrop-blur-md shadow-lg
+                  transition-all duration-300">
+    <ClockMode isHovering={showPanel} />
+    <PomodoroCycles />
+  </div>
 
-        {shouldShowPanel && <ControlPanel />}
-      </section>
-    </main>
-  )
+  {shouldShowPanel && (
+    <div className="mt-2 border-2 border-black/20 rounded-2xl
+                    bg-white/60 backdrop-blur-md
+                    p-[clamp(1rem,3vh,1.5rem)] shadow-md
+                    max-h-[60vh] overflow-y-auto no-scrollbar">
+      <ControlPanel />
+    </div>
+  )}
+</section>
+
+)
+
 }
 
 export default TimerPanel

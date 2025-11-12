@@ -5,22 +5,14 @@ import Slider from "./Slider"
 {/* 滑桿元件_番茄_Rest*/}
 
 const ControlRestPanel = () => {
+  const { rest, setRestTime, setRestDragging } = usePomodoroSettings()
 
-  const{
-    rest,
-    setRestTime,
-    setRestDragging,
-
-} = usePomodoroSettings()
-
-const startDrag = () => setRestDragging(true)
-const endDrag = () => setRestDragging(false)
-
+  const startDrag = () => setRestDragging(true)
+  const endDrag = () => setRestDragging(false)
 
   return (
-    <div className="p-5 flex flex-col gap-4">
-      <label className="flex flex-col gap-2">
-
+    <div className="flex flex-col items-end w-full px-1">
+      <label className="w-full">
         <Slider
           min={1}
           max={15}
@@ -29,6 +21,7 @@ const endDrag = () => setRestDragging(false)
           onChange={(e) => setRestTime(Number(e.target.value))}
           onStart={startDrag}
           onEnd={endDrag}
+          className="w-full"
         />
       </label>
     </div>

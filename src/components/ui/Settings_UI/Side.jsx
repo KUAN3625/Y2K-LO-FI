@@ -34,7 +34,7 @@ const SideMenu = () => {
           className="pointer-events-auto fixed top-5 left-5 z-[800] p-3 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/90 transition shadow-sm"
           title="開啟選單"
         >
-          <Menu size={22} />
+          <Menu size={15} />
         </button>
       )}
 
@@ -49,9 +49,15 @@ const SideMenu = () => {
 
       {/* 側邊欄 */}
       <aside
-        className={`pointer-events-auto fixed top-0 left-0 z-[9999] h-full w-72 bg-white/70 backdrop-blur-md shadow-md border-r border-white/50
-        transition-transform duration-500 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
-      >
+  className={`pointer-events-auto fixed left-0 top-0 z-[9999]
+  h-[100dvh] md:h-dvh w-[min(22rem,92vw)] max-w-[92vw]
+  bg-white/70 backdrop-blur-md border-r border-white/50 shadow-md
+   overflow-y-auto overscroll-contain no-scrollbar
+  will-change-transform backface-hidden
+  transition-transform duration-500
+  ${isOpen ? "translate-x-0" : "-translate-x-[106%]"}`}
+>
+
         <div className="flex flex-col justify-between h-full py-6">
           {/* 上半部 */}
           <nav className="flex flex-col gap-5">
@@ -60,13 +66,18 @@ const SideMenu = () => {
               { name: "To-do-list", path: "/todo", cam: "threeScene" },
               { name: "About", path: "/about", cam: "twoScene" },
             ].map(({ name, path, cam }) => (
-              <button
-                key={name}
-                onClick={() => handleNavigate(path, cam)} // ✅ 這裡執行跳轉
-                className="text-left px-9 py-10 text-5xl font-medium tracking-wide leading-snug text-gray-800 hover:bg-white/90 transition"
-              >
-                {name}
-              </button>
+<button
+  key={name}
+  onClick={() => handleNavigate(path, cam)}
+  className="text-left px-[clamp(1rem,3vw,2.25rem)]
+             py-[clamp(0.75rem,2.5vh,2.5rem)]
+             text-[clamp(1.5rem,4vw,2.75rem)]
+             font-medium tracking-wide leading-snug
+             text-gray-800 hover:bg-white/90 transition"
+>
+  {name}
+</button>
+
             ))}
           </nav>
 

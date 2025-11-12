@@ -1,25 +1,22 @@
-import './App.css'
-import AppRoutes from './Home/Routes'
-import BgCanvas from './components/three/CanvasHome'
+import "./App.css"
+import AppRoutes from "./Home/Routes"
+import BgCanvas from "./components/three/CanvasHome"
 
 function App() {
-
   return (
     <>
-       
-      
-      <div className=' fixed  z-10 w-screen h-screen pointer-events-none '>
+      {/* 背景：滿版 3D Canvas */}
+      <div className="ps-fullscreen -z-10 pointer-events-none">
+        <BgCanvas />
+      </div>
+
+      {/* 前景：整個 App UI 滿版覆蓋在上層 */}
+      <div className="fixed inset-0 z-10">
         <AppRoutes />
-        
       </div>
-
-
-      <div className=' flex  w-screen h-screen'>
-      <BgCanvas />
-      </div>
-
     </>
   )
 }
 
 export default App
+

@@ -13,32 +13,27 @@ const Core = () => {
   const [isHidden, setIsHidden] = useState(false);
 
   return (
-    <main className=" relative w-full min-h-screen text-gray-800 px-6 py-8">
+   <main className="relative min-h-screen  text-gray-800 overflow-hidden">
+  <div
+    className={`transition-opacity duration-500 relative safe-zone ${
+      isHidden ? "opacity-0 pointer-events-none" : "opacity-100"
+    }`}
+  >
+    <SideMenu />
+    <TimerPanel />
+    <Musicbox songs={songsdata} />
 
-      <div
-        className={`transition-opacity duration-500 relative ${isHidden ? "opacity-0 pointer-events-none" : "opacity-100"}`}
-      >
-        <SideMenu />
+    <div className="pointer-events-auto fixed bottom-10 left-1/2 -translate-x-1/2 w-[90vw] max-w-[1000px]">
+      <CassetteCarousel />
+    </div>
+  </div>
 
-        <TimerPanel />
+  <HideToggleButton
+    isHidden={isHidden}
+    onToggle={() => setIsHidden(!isHidden)}
+  />
+</main>
 
-        <Musicbox songs={songsdata} />
-
-
-        <div className="pointer-events-auto fixed bottom-43 left-1/2 -translate-x-1/2 w-[92vw] ">
-          <CassetteCarousel />
-
-        </div>
-      </div>
-
-
-      <HideToggleButton
-        isHidden={isHidden}
-        onToggle={() => setIsHidden(!isHidden)}
-      />
-
-
-    </main>
 
   )
 

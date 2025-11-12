@@ -14,19 +14,19 @@ const ControlPanel = () => {
 
 
   return (
-    <div className="border-2  rounded-2xl px-5 pt-5 pb-8 bg-white/5 backdrop-blur-md">
+    <div className="  rounded-2xl px-5 pt-5 pb-8  backdrop-blur-md">
 
-      <div className=" flex flex-col   gap-4 p-5">
+      <div className=" flex flex-col  gap-1 p-5">
 
-        {isConfigMode && (
-          <>
+{isConfigMode && (
+<div className="flex flex-col gap-[0.3rem] items-end">
+  <TimeBtn label="Focus" Component={ControlPanelF} />
+  <TimeBtn label="Rest" Component={ControlRestPanel} />
+  <TimeBtn label="Cycles" Component={ControlCycles} />
+</div>
 
-            <TimeBtn label="  Focus" Component={ControlPanelF} />
-            <TimeBtn label="  Rest" Component={ControlRestPanel} />
-            <TimeBtn label="Cycles" Component={ControlCycles} />
+)}
 
-          </>
-        )}
 
 
         <div className="flex  justify-center mt-4">
