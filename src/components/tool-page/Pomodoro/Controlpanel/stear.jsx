@@ -15,16 +15,16 @@ export const TimeStear = () => {
   return (
     <div
       className="flex flex-col items-center
-                 gap-[clamp(0.4rem,1vh,0.8rem)]
+                 gap-[clamp(0.6rem,1vh,0.8rem)]
                  py-[clamp(0.25rem,1vh,0.5rem)]
                  text-center select-none"
     >
       {/* 狀態文字 */}
       {(status === "focus" || status === "rest" || status === "paused") && (
-        <p
-          className="text-[clamp(0.9rem,2vw,1.1rem)] font-black leading-tight
-                     tracking-wide text-gray-800"
-        >
+<p
+  className="text-[clamp(1.1rem,3vw,1.9rem)] font-black leading-tight
+             tracking-wide text-gray-800"
+>
           {statusLabel}
         </p>
       )}
