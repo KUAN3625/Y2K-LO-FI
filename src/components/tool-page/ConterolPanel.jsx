@@ -5,36 +5,27 @@ import ControlCycles from "../ui/Settings/ControlPanel_Slider_Cy"
 import ControlRestPanel from "../ui/Settings/ControlPanel_Slider_R"
 import { TimeStear } from "./Pomodoro/Controlpanel/stear"
 
-{/* 管理番茄鐘滑稈行為 */ }
-
 const ControlPanel = () => {
   const { status } = usePomodoroTimer()
   const isConfigMode = status === "idle" || status === "done"
 
-
-
   return (
-    <div className="  rounded-2xl px-5 pt-5 pb-8  backdrop-blur-md">
-
-      <div className=" flex flex-col  gap-1 p-5">
-
-{isConfigMode && (
-<div className="flex flex-col gap-[0.3rem] items-end">
-  <TimeBtn label="Focus" Component={ControlPanelF} />
-  <TimeBtn label="Rest" Component={ControlRestPanel} />
-  <TimeBtn label="Cycles" Component={ControlCycles} />
-</div>
-
-)}
-
-
-
-        <div className="flex  justify-center mt-4">
-          <TimeStear />
+    <div className="w-full h-full flex flex-col justify-between">
+      {/* 🔹 上半：三個滑桿區 */}
+      {isConfigMode && (
+        <div className="flex flex-col gap-[0.6rem] items-end px-3 py-2">
+          <TimeBtn label="Focus" Component={ControlPanelF} />
+          <TimeBtn label="Rest" Component={ControlRestPanel} />
+          <TimeBtn label="Cycles" Component={ControlCycles} />
         </div>
+      )}
 
+      {/* 🔹 下半：控制按鈕區 */}
+      <div className="flex justify-center mt-3 pb-2">
+        <TimeStear />
       </div>
     </div>
   )
 }
+
 export default ControlPanel
