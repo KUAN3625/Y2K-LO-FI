@@ -49,7 +49,7 @@ const SideMenu = () => {
 
       {/* 側邊欄 */}
       <aside
-  className={`pointer-events-auto fixed left-0 top-0 z-[9999]
+  className={`pointer-events-auto fixed left-0 top-0 z-[999999]
   h-[100dvh] md:h-dvh w-[min(22rem,92vw)] max-w-[92vw]
   bg-white/70 backdrop-blur-md border-r border-white/50 shadow-md
    overflow-y-auto overscroll-contain no-scrollbar

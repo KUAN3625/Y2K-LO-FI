@@ -32,7 +32,7 @@ const CassetteCarousel = () => {
       {!showAlbums && (
 <button
   onClick={() => setShowAlbums(true)}
-  className="fixed left-10 top-[60%] -translate-y-1/2 z-[99999]
+  className="fixed left-10 top-[60%] -translate-y-1/2 z-[99]
              border-white/40 text-white/70 rounded-md border-2
              w-[40px] h-[100px] flex items-center justify-center text-2xl
              bg-white/5 backdrop-blur-md
