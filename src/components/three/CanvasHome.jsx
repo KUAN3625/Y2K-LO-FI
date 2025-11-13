@@ -51,7 +51,7 @@ useEffect(() => {
         <DebugState />
         <CameraWiggle />
         <Sunsevven />
-        <OrbitControls/>
+        {/* <OrbitControls/> */}
 
         {/* <Role position={[0, 0, 1]} /> */}
         {/* <SphereByStatus /> */}

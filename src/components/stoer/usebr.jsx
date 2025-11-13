@@ -30,7 +30,7 @@ const cameraPresets = {
   },
 
   twoScene:  {
-  cameraPosition: [46, 6, -18],
+  cameraPosition: [48, 7, -17],
   cameraRotation: [3.08, 1.41, -3.07],
   fov: 30,
   near: 0.1,
