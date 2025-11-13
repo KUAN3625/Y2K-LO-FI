@@ -10,8 +10,8 @@ import { CameraWiggle } from './Camer/cameraWiggle'
 
 import { Site } from './004'
 import { Humen } from './005'
-import { MOD } from '../../../public/011'
-import { GODD } from '../../../public/012'
+import { Sunsevven } from './Home_v6'
+
 
 
 const DebugState = () => {
@@ -42,18 +42,16 @@ useEffect(() => {
         camera={{ fov: 30, near: 0.1, far: 1000, position: [12.67, -0.46, 29.93] }}
         frameloop="always"
         
-        className=' fixed inset-0'>
+        className=' fixed inset-0 '>
       
     
-        <CameraController />
-        <GODD />
+        {/* <CameraController /> */}
         <Humen rotation={[0, Math.PI / 3, 0]} scale={0.56}  position={[ 38, -1.15, -2.5]}/>
         <DLight />
-        <Site />
         <DebugState />
         <CameraWiggle />
- 
-        {/* <OrbitControls/> */}
+        <Sunsevven />
+        <OrbitControls/>
 
         {/* <Role position={[0, 0, 1]} /> */}
         {/* <SphereByStatus /> */}

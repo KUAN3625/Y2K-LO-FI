@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       {/* 背景：滿版 3D Canvas */}
-      <div className="ps-fullscreen -z-10 pointer-events-none">
+      <div className="ps-fullscreen z-10 pointer-events-none">
         <BgCanvas />
       </div>
 

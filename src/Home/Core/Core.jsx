@@ -23,7 +23,7 @@ const Core = () => {
     <TimerPanel />
     <Musicbox songs={songsdata} />
 
-   
+      
       <CassetteCarousel />
 
   </div>

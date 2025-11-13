@@ -5,7 +5,7 @@ const Login = () => {
     const switchTo = useCameraStore(s => s.switchTo)
 
     return (
-        <div className=" min-h-screen w-full flex items-center justify-center ">
+        <div className="z-0 min-h-screen w-full flex items-center justify-center ">
 
 
             <div className="w-[400px] min-h-[320px]  gap-7 rounded-2xl   flex flex-col justify-center items-center ">
