@@ -1,13 +1,16 @@
 import { useState } from "react"
 
 export const Note = ({
+  id,
   text,
   color = "#eee",
   onDelete,
   onDragEnd,
   onTextChange,
+  onFocusNote, // ⭐ 新增
   x = 0,
   y = 0,
+  z = 1,       // ⭐ 新增
 }) => {
   const [value, setValue] = useState(text)
   const [isEditing, setIsEditing] = useState(false)
@@ -17,6 +20,10 @@ export const Note = ({
 
   const handleMouseDown = (e) => {
     if (isEditing) return
+
+    // ⭐ 先讓便條浮到最上層
+    if (onFocusNote) onFocusNote(id)
+
     const note = e.currentTarget
     const rect = note.getBoundingClientRect()
     startX = e.clientX - rect.left
@@ -62,6 +69,7 @@ export const Note = ({
         position: "absolute",
         left: `${x}px`,
         top: `${y}px`,
+        zIndex: z, // ⭐ 有效 z-index
       }}
       onMouseDown={handleMouseDown}
     >
@@ -74,7 +82,7 @@ export const Note = ({
           w-full h-full resize-none bg-transparent outline-none leading-snug break-words
           ${isEditing ? "cursor-text" : "cursor-default"}
         `}
-        readOnly={!isEditing} // 🚫 非編輯狀態禁止文字選取
+        readOnly={!isEditing}
       />
 
       <button
