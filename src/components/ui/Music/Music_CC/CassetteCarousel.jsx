@@ -49,8 +49,8 @@ const CassetteCarousel = () => {
       {showAlbums && (
   <div
     ref={containerRef}
-    className="fixed top-[60%] -translate-y-1/2 left-[100px] z-[99998]
-               rounded-2xl px-6 pt-5 pb-8 bg-white/10 border border-white/30
+    className="fixed top-[58%] -translate-y-1/2 left-[50px] z-[99998]
+               rounded-3xl px-6 pt-3 pb-3  border border-white/30
                backdrop-blur-md shadow-lg"
   >
     <div className="flex flex-col gap-4">

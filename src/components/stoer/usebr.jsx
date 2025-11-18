@@ -38,9 +38,11 @@ const cameraPresets = {
 },
 
   threeScene: {
-    cameraPosition: [120.02, 19.48, 12.69],
-    cameraRotation: [-0.12, 0.91, 0.10],
-    fov: 30, near: 0.1, far: 1000,
+  cameraPosition: [52.41, 1, 19.89],
+  cameraRotation: [2.11, 1.45, -2.12],
+  fov: 30,
+  near: 0.1,
+  far: 1000,
   },
 }
 

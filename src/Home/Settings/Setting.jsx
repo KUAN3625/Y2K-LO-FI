@@ -4,27 +4,25 @@ import SideMenu from "../../components/ui/Settings_UI/Side"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useAudioSettings } from "../../components/stoer/useAudioSettings"
 
-
 const Setting = () => {
-const { musicVolume, setMusicVolume } = useAudioSettings()
-  const [music, setMusic] = useState(60)
+  const { musicVolume, setMusicVolume } = useAudioSettings()
+  
   const [sfx, setSfx] = useState(40)
   const [pixel, setPixel] = useState(4)
   const [theme, setTheme] = useState("Lo-Fi")
 
   const themeOptions = ["Lo-Fi", "Y2K", "Mono"]
 
-  // === Slider 設定 ===
   const sliders = [
-{
-  id: "music",
-  label: "Music Volume",
-  value: Math.round(musicVolume * 100),
-  setValue: (v) => setMusicVolume(v / 100),
-  min: 0,
-  max: 100,
-  step: 1,
-},
+    {
+      id: "music",
+      label: "Music Volume",
+      value: Math.round(musicVolume * 100),
+      setValue: (v) => setMusicVolume(v / 100),
+      min: 0,
+      max: 100,
+      step: 1,
+    },
     {
       id: "sfx",
       label: "SFX Volume",
@@ -45,79 +43,121 @@ const { musicVolume, setMusicVolume } = useAudioSettings()
     },
   ]
 
-  // === 處理左右切換 ===
   const handleThemeChange = (dir) => {
-    const currentIndex = themeOptions.indexOf(theme)
+    const i = themeOptions.indexOf(theme)
     const next =
       dir === "next"
-        ? (currentIndex + 1) % themeOptions.length
-        : (currentIndex - 1 + themeOptions.length) % themeOptions.length
+        ? (i + 1) % themeOptions.length
+        : (i - 1 + themeOptions.length) % themeOptions.length
     setTheme(themeOptions[next])
   }
 
   return (
-    <div className="w-full h-screen flex">
-      {/* 左側按鈕欄 */}
-      <aside className="w-[72px] shrink-0">
-        <SideMenu />
-      </aside>
+<div className="fixed inset-0 z-10 flex overflow-hidden">
+  <aside className="w-[60px] shrink-0">
+    <SideMenu />
+  </aside>
 
-      {/* 右側內容 */}
-      <main className="pointer-events-auto flex-1 overflow-y-auto flex justify-center items-start">
-        <section className="w-[600px] mt-24 flex flex-col gap-5">
-          {/* 頁面標題 */}
-          <h1
-            className="text-2xl text-white 
-            [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000]
-            font-semibold text-left"
-          >
-            Settings
-          </h1>
+      {/* 右側內容（可滾動） */}
+<main
+  className="
+    flex-1
+    h-screen
+    overflow-y-auto
+    py-12 px-6
+    flex justify-center
+  "
+>
 
-          {/* === 產生所有滑桿設定 === */}
+
+
+        <section
+          className="
+            w-full max-w-[620px] 
+            flex flex-col gap-3
+          "
+        >
+{/* 頁面標題 */}
+<h1 className="text-[clamp(24px,4vw,40px)] font-semibold text-white drop-shadow-[0_0_4px_black]">
+  Settings
+</h1>
+
+
+
+          {/* 所有 slider 卡片 */}
           {sliders.map(({ id, label, value, setValue, min, max, step }) => (
             <div
               key={id}
-              className="rounded-xl bg-zinc-200/60 border p-6 flex flex-col gap-4 shadow-sm"
+              className="
+                rounded-2xl bg-white/30 backdrop-blur-md
+                border border-white/40
+                shadow-md
+                px-6 py-1 flex flex-col gap-4
+              "
             >
-              <div className="text-lg font-medium text-center">{label}</div>
-              <div className="flex justify-center items-center gap-4">
+<div className="text-[clamp(18px,2.6vw,28px)] font-semibold text-center">
+  {label}
+</div>
+
+              <div className="flex items-center gap-4">
                 <Slider
                   min={min}
                   max={max}
                   step={step}
                   value={value}
                   onChange={(e) => setValue(Number(e.target.value))}
-                  className="w-[400px]"
+                  className="flex-1"
                 />
-                <span className="w-10 text-right tabular-nums">{value}</span>
+{/* Slider 數值 */}
+<span className="w-12 text-right text-[clamp(16px,2.2vw,24px)] tabular-nums">
+  {value}
+</span>
+
+
               </div>
             </div>
           ))}
 
-          {/* === Theme Preset：按鈕式設定 === */}
-          <div className="rounded-xl bg-zinc-200/60 border p-6 flex flex-col gap-4 shadow-sm">
-            <div className="text-lg font-medium text-center">Theme Preset</div>
+          {/* Theme Preset */}
+          <div
+            className="
+              rounded-2xl bg-white/30 backdrop-blur-md
+              border border-white/40 shadow-md
+              px-6 py-6 flex flex-col gap-4
+            "
+          >
+{/* Theme Preset 標題 */}
+<div className="text-[clamp(18px,2.6vw,28px)] font-semibold text-center">
+  Theme Preset
+</div>
 
-            <div className="flex items-center justify-between gap-4 bg-zinc-300/60 border rounded-lg p-3">
+
+
+            <div className="flex items-center justify-between gap-4 bg-white/40 backdrop-blur-sm border rounded-lg p-3">
               <button
                 onClick={() => handleThemeChange("prev")}
-                className="p-2 rounded-md border bg-white/80 hover:bg-white transition"
+                className="p-2 rounded-md border bg-white/70 hover:bg-white transition"
               >
                 <ChevronLeft size={20} />
               </button>
 
-              <div className="flex-1 text-center font-medium">{theme}</div>
+{/* Theme 文字 */}
+<div className="flex-1 text-center text-[clamp(16px,2.2vw,24px)] font-medium">
+  {theme}
+</div>
+
+
 
               <button
                 onClick={() => handleThemeChange("next")}
-                className="p-2 rounded-md border bg-white/80 hover:bg-white transition"
+                className="p-2 rounded-md border bg-white/70 hover:bg-white transition"
               >
                 <ChevronRight size={20} />
               </button>
             </div>
           </div>
         </section>
+  
       </main>
     </div>
   )

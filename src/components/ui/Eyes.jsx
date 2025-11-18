@@ -18,7 +18,7 @@ const HideToggleButton = ({ isHidden, onToggle }) => {
         onToggle();
         play("ui.click");
       }}
-      className="pointer-events-auto absolute bottom-3 right-5 z-50 p-4 rounded-full
+      className="pointer-events-auto absolute bottom-3 right-5 z-50 p-3 rounded-full
                  bg-white/30 backdrop-blur-md shadow-md
                  hover:bg-white/50 transition"
       title={isHidden ? "顯示介面" : "隱藏介面"}
