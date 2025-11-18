@@ -7,7 +7,7 @@ function App() {
     <>
       {/* 背景：滿版 3D Canvas */}
       <div className="ps-fullscreen z-10 pointer-events-none">
-        {/* <BgCanvas /> */}
+        <BgCanvas />
       </div>
 
       {/* 前景：整個 App UI 滿版覆蓋在上層 */}
