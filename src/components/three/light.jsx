@@ -26,9 +26,9 @@ const DLight = () => {
 
 
 <EffectComposer>
-  {/* <Noise opacity={0.04} />  */}
+  <Noise opacity={0.02} /> 
   <Pixelation granularity={2} /> 
-<Bloom intensity={0.25} luminanceThreshold={0.8} mipmapBlur />
+<Bloom intensity={0.25} luminanceThreshold={0.9} mipmapBlur />
   <Vignette eskil={false} offset={0.1} darkness={-1.3} />
 
   </EffectComposer> 
