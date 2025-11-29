@@ -13,7 +13,7 @@ const ControlPanel = () => {
     <div className="w-full h-full flex flex-col justify-between">
       {/* 🔹 上半：三個滑桿區 */}
       {isConfigMode && (
-        <div className="flex flex-col gap-[0.6rem] items-end px-3 py-2">
+        <div className="flex flex-col gap-[0.2rem] items-end px-5 py-1">
           <TimeBtn label="Focus" Component={ControlPanelF} />
           <TimeBtn label="Rest" Component={ControlRestPanel} />
           <TimeBtn label="Cycles" Component={ControlCycles} />
@@ -21,7 +21,7 @@ const ControlPanel = () => {
       )}
 
       {/* 🔹 下半：控制按鈕區 */}
-      <div className="flex justify-center mt-3 pb-2">
+      <div className="flex justify-center pb-2">
         <TimeStear />
       </div>
     </div>

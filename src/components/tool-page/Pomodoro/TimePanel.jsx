@@ -24,19 +24,19 @@ const TimerPanel = () => {
     hideTimer.current = setTimeout(() => {
       setShowPanel(false)
       hideTimer.current = null
-    }, 400)
+    }, 300)
   }
 
 return (
   <section
-    className="pointer-events-auto fixed top-[clamp(1rem,3vh,2rem)] right-[clamp(1rem,3vw,2rem)]
-               w-[clamp(16rem,25vw,22rem)] max-w-[90vw] rounded-2xl z-[50]"
+    className="pointer-events-auto fixed top-[clamp(1rem,3vh,2rem)] right-[clamp(5rem,3vw,2rem)]
+               w-[clamp(5rem,25vw,22rem)] max-w-[90vw] rounded-2xl z-[50]"
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
   >
     {/* 🔹 上半：時間顯示框 */}
-    <div className="relative border-2 border-black/20 rounded-2xl
-                    p-[clamp(1rem,2.5vh,1.5rem)]
+    <div className="relative border-2 border-black rounded-2xl
+                    p-[clamp(0.5rem,2.5vh,1.5rem)]
                     bg-white/40 backdrop-blur-md shadow-lg
                     transition-all duration-300">
       <ClockMode isHovering={showPanel} />
@@ -47,10 +47,10 @@ return (
     {shouldShowPanel && (
       <div
         className="absolute left-0 right-0 mt-2
-                   border-2 border-black/20 rounded-2xl
+                   border-2 border-black rounded-2xl
                    bg-white/70 backdrop-blur-md
-                   p-[clamp(1rem,2.5vh,1.5rem)] shadow-lg
-                   max-h-[55vh] overflow-y-auto no-scrollbar
+                   p-[clamp(0.5rem,2.5vh,1.5rem)] shadow-lg
+                   max-h-[55vh]  no-scrollbar
                    z-[60]"
         style={{
           top: "calc(100% + 0.1rem)", // 讓它浮在主框下方

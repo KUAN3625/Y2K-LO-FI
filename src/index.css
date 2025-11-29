@@ -130,3 +130,39 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   cursor: pointer;
 }
+
+
+/* 開發用 12 欄網格 */
+.grid-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  margin: 0 auto;              /* 跟 max-width 容器對齊 */
+  max-width: 1440px;           /* 要跟上面容器一樣 */
+  padding-inline: 120px;       /* 同樣的左右 padding */
+  z-index: 99999;
+  display: none;
+
+  /* 垂直欄線，每 1/12 畫一條線 */
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.25) 2px,
+    transparent 1px
+  );
+  background-size: calc(100% / 12) 100%;
+
+  /* 可選：水平 baseline grid（例如 8px 間距） */
+  /* 加這段會變成雙向網格，嫌吵可以刪掉 */
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.grid-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 255, 0.2) 1px,
+    transparent 1px
+  );
+  background-size: 100% 8px; /* baseline 高度，8px 或 4px 自己挑 */
+}
