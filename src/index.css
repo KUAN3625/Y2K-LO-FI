@@ -131,6 +131,23 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
+.ps-clock-wrap {
+  display: flex;
+  justify-content: center;   /* 水平置中整串 02:07 */
+  align-items: center;       /* 垂直置中，解決「垂直偏下」 */
+  line-height: 1;            /* 避免多餘行高把 baseline 撐歪 *
+  /* 這裡整體縮小字體，數字和冒號一起縮 */
+  font-size: 0.7em;          /* 覺得還是太大就改 0.6em、0.65em 試 */
+}
+
+
+.ps-clock-small span {
+  font-size: 0.9em !important;   /* ← 等比例縮小整組數字 */
+  line-height: 1;
+   
+}
+
+
 
 /* 開發用 12 欄網格 */
 .grid-overlay {

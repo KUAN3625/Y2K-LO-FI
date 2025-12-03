@@ -11,6 +11,7 @@ const ClockMode = ({ isHovering }) => {
     const { focus, rest } = usePomodoroSettings(); //滑稈
     const { status } = usePomodoroTimer();
     
+    const formatMinutes = (value) => String(value).padStart(2, "0");
     
     {/*--------下方為番茄鐘顯示邏輯----- */}
     const remainingSec = usePomodoroTimer((s) => s.remainingSec);
@@ -25,7 +26,7 @@ const isAnyDragging = focus.isDragging || rest.isDragging;
     status === "focus" || status === "rest"
       ? runtimeText
       : isAnyDragging || isHovering
-      ? `${focus.time}|${rest.time}`
+       ? `${formatMinutes(focus.time)}|${formatMinutes(rest.time)}`
       : text;
 
   // 只在運作中讓冒號閃；暫停/其他狀態不閃

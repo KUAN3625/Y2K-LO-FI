@@ -35,12 +35,15 @@ return (
     onMouseLeave={handleLeave}
   >
     {/* 🔹 上半：時間顯示框 */}
-    <div className="relative border-2 border-black rounded-2xl
-                    p-[clamp(0.5rem,2.5vh,1.5rem)]
-                    bg-white/40 backdrop-blur-md shadow-lg
-                    transition-all duration-300">
+<div className="relative border-2 border-black rounded-2xl
+                p-[clamp(0.5rem,2.5vh,1.5rem)]
+                bg-white/60 backdrop-blur-md shadow-lg
+                transition-all duration-300
+                ps-clock-small">  
+        <div className="ps-clock-wrap">
       <ClockMode isHovering={showPanel} />
-      <PomodoroCycles />
+        </div>
+      {/* <PomodoroCycles /> */}
     </div>
 
     {/* 🔹 下半：設定面板（絕對定位、浮層化） */}
@@ -51,7 +54,7 @@ return (
                    bg-white/70 backdrop-blur-md
                    p-[clamp(0.5rem,2.5vh,1.5rem)] shadow-lg
                    max-h-[55vh]  no-scrollbar
-                   z-[60]"
+                   z-[60] duration-300"
         style={{
           top: "calc(100% + 0.1rem)", // 讓它浮在主框下方
         }}

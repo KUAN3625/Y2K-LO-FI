@@ -24,7 +24,7 @@ const Login = () => {
         relative
         w-full max-w-[420px]
         flex flex-col items-center
-        gap-5
+        gap-6
         pt-[10vh]       /* ⭐ 讓按鈕浮到太陽上方 */
       ">
 

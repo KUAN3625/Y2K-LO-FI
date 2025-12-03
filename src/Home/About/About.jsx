@@ -38,10 +38,10 @@ const About = () => {
       </div>
 
       {/* ------- 中螢幕（筆電 md，左右並排，不使用 absolute） ------- */}
-<div className="hidden md:flex lg:hidden w-full px-26 mt-6 justify-between items-start">
+<div className="hidden md:flex lg:hidden w-full px-40 mt-7 justify-between items-start">
   
   {/* 左邊按鈕列（小一點） */}
-  <div className="flex items-center gap-4 bg-white/90 border-2 border-black rounded-full px-8 py-3 shadow-[3px_3px_0_#000]">
+  <div className="flex items-center gap-4 bg-white/60 border-2 border-black rounded-full px-8 py-3 shadow-[3px_3px_0_#000]">
     {["A", "B", "C"].map((label) => (
       <button
         key={label}

@@ -84,17 +84,17 @@ const Musicbox = ({ songs = [] }) => {
   return (
  <section
    className="
-     pointer-events-auto select-none fixed bottom-[clamp(1rem,2vh,2rem)] left-[clamp(1rem,3vw,2rem)]
-     w-[clamp(22rem,35vw,28rem)] max-w-[460px] h-25
+     pointer-events-auto select-none fixed bottom-[clamp(0.5rem,2vh,2rem)] left-[clamp(5rem,3vw,2rem)]
+     w-[clamp(16rem,35vw,28rem)] max-w-[322px] h-18
      rounded-xl border-2 bg-white/60 backdrop-blur-md shadow-md
-     flex items-center px-2 z-[55]
+     flex items-center px-1 z-[55]
    "
    role="region"
    aria-label="音樂播放器"
  >
-      <div className="flex items-center gap-3 w-full px-3">
+      <div className="flex items-center gap-1 w-full px-3">
         {/* 封面 */}
-        <div className="h-18 w-18 rounded-md overflow-hidden bg-amber-600 shrink-0">
+        <div className="h-12 w-12 rounded-md overflow-hidden bg-amber-600 shrink-0">
           <img
             src={currentSong?.coverUrl}
             alt=""
@@ -106,10 +106,10 @@ const Musicbox = ({ songs = [] }) => {
         {/* 標題與演出者 */}
         <div style={{ fontFamily: "system-ui, sans-serif" }}
         className="flex flex-col gap-2  min-w-0 mr-1">
-          <div className="text-black text-[1rem] font-black leading-none truncate">
+          <div className="text-black text-[0.9rem] font-black leading-none truncate">
             {currentSong?.title || "Unknown Title"}
           </div>
-          <div className="text-black/80 text-[0.8rem] font-medium leading-none truncate">
+          <div className="text-black/80 text-[0.6rem] font-medium leading-none truncate">
             {currentSong?.artist || "Unknown Artist"}
           </div>
         </div>
