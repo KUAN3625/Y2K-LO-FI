@@ -23,7 +23,7 @@ const About = () => {
       title: "Replenish",
       text1: "這裡放補充資訊：",
       text2:
-        "這個區域會包含非常多的補充資料、說明、段落敘述、作者註記等，因此預設加入滾動條，避免視窗高度不足。",
+        "這個區域會包含非常多的補充資料、說明、段落敘述、作者註記等，這裡加入了自適應，所以不用擔心寬距問題。",
     },
   }
 
@@ -38,10 +38,12 @@ const About = () => {
       </div>
 
       {/* ------- 中螢幕（筆電 md，左右並排，不使用 absolute） ------- */}
-<div className="hidden md:flex lg:hidden w-full px-40 mt-7 justify-between items-start">
+<div className="hidden md:flex lg:hidden w-full px-20 mt-4 justify-between items-start">
   
   {/* 左邊按鈕列（小一點） */}
-  <div className="flex items-center gap-4 bg-white/60 border-2 border-black rounded-full px-8 py-3 shadow-[3px_3px_0_#000]">
+  <div className="px-20">
+
+  <div className="flex items-center gap-4 bg-white/60 border-2 border-black rounded-full px-3 py-3 shadow-[3px_3px_0_#000]">
     {["A", "B", "C"].map((label) => (
       <button
         key={label}
@@ -50,22 +52,23 @@ const About = () => {
           setCurrent(label)
         }}
         className={`
-          w-9 h-9 rounded-full border-[2px] border-black bg-gray-300
+          w-10 h-9 rounded-full border-[2px] border-black bg-gray-300
           transition-transform text-sm
           ${
             current === label
               ? "bg-gray-100 scale-105"
               : "hover:scale-110"
-          }
-        `}
-      >
+            }
+            `}
+            >
         {label}
       </button>
     ))}
   </div>
+    </div>
 
   {/* 中螢幕 About 內容 */}
-  <div className="w-[55%] bg-white/85 border-2 border-black shadow-[3px_3px_0_#000] p-6">
+  <div className="w-[50%] bg-white/85 border-2 border-black shadow-[3px_3px_0_#000] p-6">
     <div className="border-b-2 border-black pb-3 mb-4">
       <h2 className="text-[32px] font-bold">{data.title}</h2>
     </div>

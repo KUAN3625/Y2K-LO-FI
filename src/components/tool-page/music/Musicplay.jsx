@@ -128,10 +128,10 @@ const Musicbox = ({ songs = [] }) => {
           <button
             type="button"
             onClick={isPlaying ? pauseSong : playSong}
-            className="h-10 w-10 flex items-center justify-center rounded-md bg-black/10 hover:bg-black/20 active:bg-black/30 font-semibold text-lg"
+            className="h-8 w-8 text flex items-center justify-center rounded-md bg-black/10 hover:bg-black/20 active:bg-black/30 font-semibold text-lg"
             aria-label="播放/暫停"
           >
-            {isPlaying ? "❚❚" : "▷"}
+            {isPlaying ? "❚❚" : "▶"}
           </button>
 
           <button

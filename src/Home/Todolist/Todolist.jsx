@@ -97,7 +97,7 @@ const raiseNote = (id) => {
       <div
         draggable="true"
         onDragStart={(e) => e.dataTransfer.setData("note", "true")}
-        className="pointer-events-auto absolute left-0 top-0 w-[100px] h-full bg-white/60 hover:bg-gray-50/30 cursor-grab active:cursor-grabbing"
+        className="pointer-events-auto absolute left-0 top-0 w-[112px] h-full bg-white/60 hover:bg-gray-50/30 cursor-grab active:cursor-grabbing"
       ></div>
 
       {/* 便條容器 */}
@@ -121,7 +121,7 @@ const raiseNote = (id) => {
       ))}
 
       {/* 右側按鈕群 */}
-      <main className="pointer-events-auto absolute top-1/3 right-8 -translate-y-1/2 flex flex-col gap-6">
+      <main className="pointer-events-auto absolute top-1/3 right-20 -translate-y-1/2 flex flex-col gap-6">
 
         <button
           className="w-12 h-12 rounded-full border text-white text-xl"
