@@ -69,10 +69,10 @@ export const TimeStear = () => {
                 reset()
                 play("ui.click")
               }}
-              className="px-4 py-1.5 bg-rose-500 text-white rounded-md
-                         text-[clamp(0.85rem,2vw,1rem)]
-                         hover:bg-rose-600 transition active:translate-y-[1px]
-                         leading-none"
+              className="px-4 py-1.5 bg-amber-500 text-white rounded-md
+                       text-[clamp(0.85rem,2vw,1rem)]
+                       hover:bg-amber-600 transition active:translate-y-[1px]
+                       leading-none"
             >
               重設
             </button>

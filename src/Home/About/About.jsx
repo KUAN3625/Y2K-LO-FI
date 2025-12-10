@@ -52,7 +52,7 @@ const About = () => {
           setCurrent(label)
         }}
         className={`
-          w-10 h-9 rounded-full border-[2px] border-black bg-gray-300
+          w-9 h-9 rounded-full border-[2px] border-black bg-gray-300
           transition-transform text-sm
           ${
             current === label

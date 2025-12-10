@@ -14,7 +14,7 @@ const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<Login/> /*暫時修正*/} />
+            <Route path="/" element={<Entry/> /*暫時修正*/} />
             <Route path="/OK" element={<Entry2/>} />
             <Route path="/core" element={<Core/>} />
             <Route path="/todo" element={<Todolist/>} />

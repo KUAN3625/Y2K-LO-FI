@@ -53,8 +53,8 @@ const Setting = () => {
   }
 
   return (
-<div className="fixed inset-0 z-10 flex overflow-hidden">
-  <aside className="w-[60px] shrink-0">
+<div className="fixed inset-9 z-10 flex overflow-hidden">
+  <aside className="w-3 shrink-0">
     <SideMenu />
   </aside>
 
@@ -63,17 +63,15 @@ const Setting = () => {
   className="
     flex-1
     h-screen
-    overflow-y-auto
-    py-12 px-6
-    flex justify-center
+    py-5 px-5
+    flex 
+    items-center justify-center
   "
 >
 
-
-
         <section
           className="
-            w-full max-w-[620px] 
+            w-full max-w-[520px]
             flex flex-col gap-3
           "
         >
@@ -92,7 +90,7 @@ const Setting = () => {
                 rounded-2xl bg-white/30 backdrop-blur-md
                 border border-white/40
                 shadow-md
-                px-6 py-1 flex flex-col gap-4
+                px-3 py-1 flex flex-col gap-4
               "
             >
 <div className="text-[clamp(18px,2.6vw,28px)] font-semibold text-center">
@@ -105,11 +103,11 @@ const Setting = () => {
                   max={max}
                   step={step}
                   value={value}
-                  onChange={(e) => setValue(Number(e.target.value))}
+                      onChange={(e) => setValue(Number(e.target.value))}
                   className="flex-1"
                 />
 {/* Slider 數值 */}
-<span className="w-12 text-right text-[clamp(16px,2.2vw,24px)] tabular-nums">
+<span className="w-10 text-right text-[clamp(16px,2.2vw,24px)] tabular-nums">
   {value}
 </span>
 
@@ -145,8 +143,6 @@ const Setting = () => {
 <div className="flex-1 text-center text-[clamp(16px,2.2vw,24px)] font-medium">
   {theme}
 </div>
-
-
 
               <button
                 onClick={() => handleThemeChange("next")}
