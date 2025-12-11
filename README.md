@@ -1,13 +1,13 @@
-# LOFI+Y2K
+# 塑膠落日
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
 
-- 測試一下
+- 測試
 
 
-## C
+## 大標待補
 
 
 
