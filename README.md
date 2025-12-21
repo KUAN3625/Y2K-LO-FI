@@ -1,4 +1,4 @@
-# Plastic Sunset | 塑膠落日
+# Plastic Sunset | 塑膠落日 🌅
 
 “Plastic Sunset” is a digital space that blends Y2K and Lo-Fi aesthetics.
 
