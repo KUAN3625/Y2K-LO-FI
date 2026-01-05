@@ -31,7 +31,10 @@ const Login = () => {
         {/* Google Login */}
         <Loginbtn
           nametext="Google Login"
-          className="text-[clamp(16px,2vw,24px)]"
+          className="
+          opacity-60 hover:opacity-80 
+            text-gray-700
+          text-[clamp(16px,2vw,24px)]"
           to="/*"
           onBeforeNavigate={() => switchTo("menu")}
         />
@@ -39,7 +42,10 @@ const Login = () => {
         {/* Email Login */}
         <Loginbtn
           nametext="Email Login"
-          className="text-[clamp(16px,2vw,24px)]"
+          className="
+          opacity-60 hover:opacity-80 
+            text-gray-700
+          text-[clamp(16px,2vw,24px)]"
           to="/*"
           onBeforeNavigate={() => switchTo("twoScene")}
         />
